@@ -5,3 +5,12 @@
  * - Si tiene 67 o más dile que se jubile
  */
 const edad = +prompt("Dime tu edad");
+
+if(edad < 18) {
+    console.log("Eres menor de edad");
+} else if(edad < 67) {
+    console.log("Puedes trabajar");
+} else {
+    console.log("Te puedes jubilar");
+}
+
