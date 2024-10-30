@@ -61,6 +61,12 @@ console.log('--------------- APARTADO 3 -----------------');
 
 console.log('--------------- APARTADO 4 -----------------');
 
+function stringLenghts(...cadenas) {
+    return cadenas.map(c => c.length);
+}
+
+console.log(stringLenghts("potato", "milk", "car", "table"));
+
 /**
  * Apartado 5
  * A partir del siguiente array que contiene productos con mensajes sobre los mismos:
