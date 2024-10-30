@@ -24,3 +24,13 @@ console.log(palabras); // ["aro", "mono", "conejo", "cebolla"]
  * la primera letra de cada palabra
  */
 
+palabras = ["cebolla", "aro", "mono", "conejo"];
+console.log(palabras.reduce((res, p) => res + p[0], "")); // camc
+console.log(palabras.map((p) => p[0]).join("")); // camc
+
+/**
+ * A partir de un array de palabras, imprime la primera palabra que empiece por "a"
+ */
+
+console.log(palabras.find(p => p.startsWith("a")));
+console.log(palabras.find(p => p[0] === "a"));
