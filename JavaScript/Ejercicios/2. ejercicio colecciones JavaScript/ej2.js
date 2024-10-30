@@ -50,6 +50,13 @@ console.log(esPalindromo("seres"));
 
 console.log('--------------- APARTADO 3 -----------------');
 
+function suma([n1 = 0,n2 = 0,n3 = 0]) {
+    return n1 + n2 + n3;
+}
+
+console.log(suma([3,12,6,28,4])); // 21
+console.log(suma([3,12])); // 15
+console.log(suma([])); // 0
 
 /**
  * Apartado 4
