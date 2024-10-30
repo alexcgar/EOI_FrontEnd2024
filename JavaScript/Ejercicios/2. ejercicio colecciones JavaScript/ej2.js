@@ -76,20 +76,13 @@ console.log(stringLenghts("potato", "milk", "car", "table"));
 
 /**
  * Apartado 5
- * A partir del siguiente array que contiene productos con mensajes sobre los mismos:
- * - Filtra los mensajes que empiecen por ERROR (usa el método startsWith).
- * - Después recórrelos y mételos en un objeto Map cuya clave sea el nombre del producto
- * y cuyo valor sea un array con los mensajes de error asociados al producto.
- * - Recorre el objeto Map mostrando, para cada producto, que errores tiene asociados.
+ * Crea un Map con parejas de clave valor que serán de tipo string ambas
+ * La clave será la palabra en español y el valor será la traducción en inglés
+ * Mete varias palabras con sus traducciones
+ * Pregunta al usuario por una palabra y muestrale la traducción, 
+ * o si no está, dile que no conoces esa palabra
+ * Preguntar al usuario -> const palabra = prompt("Dime una palabra:")
  */
 
 console.log('--------------- APARTADO 5 -----------------');
 
-let mensajes = [
-    ['Silla', 'ERROR: Stock no coincide'],
-    ['Mesa', 'Pedido de 2 unidades'],
-    ['Silla', 'ERROR: El precio no puede ser menor a 1'],
-    ['Mesa', 'ERROR: No se pueden enviar 0 unidades'],
-    ['Cama', 'ERROR: El fabricante no tiene ese modelo'],
-    ['Silla', 'Se ha borrado el producto de la base de datos']
-];
