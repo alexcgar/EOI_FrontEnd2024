@@ -86,3 +86,16 @@ console.log(stringLenghts("potato", "milk", "car", "table"));
 
 console.log('--------------- APARTADO 5 -----------------');
 
+const traducciones = new Map();
+traducciones.set("mesa", "table");
+traducciones.set("silla", "chair");
+traducciones.set("casa", "house");
+traducciones.set("perro", "dog");
+
+const palabra = prompt("Dime una palabra: ");
+if(traducciones.has(palabra)) {
+    console.log(`${palabra} en inglés es ${traducciones.get(palabra)}`);
+} else {
+    console.log(`No sé como es ${palabra} en inglés`);
+}
+
