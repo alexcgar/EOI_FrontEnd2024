@@ -27,3 +27,5 @@ console.log(productos.join(", "));
 const prodMenor100 = productos.filter(p => p.precio < 100);
 console.log("Precio menor a 100: " + prodMenor100.join(", "));
 
+
+
