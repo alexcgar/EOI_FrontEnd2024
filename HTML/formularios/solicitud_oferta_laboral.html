@@ -18,7 +18,17 @@
             <input type="text" id="apellidos" class="form-control" required>
 
             <label for="correo" class="form-label">Correo:</label>
-            <input type="email" id="correo" class="form-control" required>
+            <input type="email" id="correo" class="form-control mb-3" required>
+
+            <label for="perfil" class="form-label">Perfil laboral:</label>
+            <select id="perfil" class="form-select mb-3">
+                <option>Programador frontend</option>
+                <option>Programador backend</option>
+                <option>Programador fullstack</option>
+                <option>Programador móviles</option>
+                <option>Analista</option>
+                <option>Jefe de programadores</option>
+            </select>
 
             <label for="salario" class="form-label">Salario esperado:</label>
             <input type="number" id="salario" class="form-control mb-3" required>
@@ -35,7 +45,10 @@
             <input type="radio" name="provincia" id="valencia" class="form-check-input">
             <label for="valencia" class="form-check-label">Valencia</label><br>
             <input type="radio" name="provincia" id="castellon" class="form-check-input">
-            <label for="castellon" class="form-check-label">Castellón</label><br>
+            <label for="castellon" class="form-check-label mb-3">Castellón</label><br>
+
+            <label for="foto">Sube tu currículum aquí:</label>
+            <input type="file"><br>
 
             <button class="btn btn-primary my-3">Enviar</button>
         </form>
