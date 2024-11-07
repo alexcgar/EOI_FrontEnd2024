@@ -10,27 +10,27 @@
     <div class="container">
         <h1>Formulario solicitud empleo</h1>
 
-        <form>
+        <form action="guardar.php" method="get">
             <label for="nombre" class="form-label">Nombre:</label>
-            <input type="text" id="nombre" class="form-control mb-3" required>
+            <input type="text" id="nombre" name="nombre" class="form-control mb-3" required>
 
             <label for="apellidos" class="form-label">Apellidos:</label>
-            <input type="text" id="apellidos" class="form-control mb-3" required>
+            <input type="text" id="apellidos" name="apellidos" class="form-control mb-3" required>
 
             <label class="form-label">Fecha de nacimiento</label>
-            <input type="date" max="2008-01-01" min="1900-01-01" class="form-control"><br>
+            <input type="date" max="2008-01-01" min="1900-01-01" class="form-control" id="fecha" name="fecha"><br>
 
             <label for="telefono" class="form-label">Teléfono:</label>
-            <input type="tel" id="telefono" class="form-control mb-3" required>
+            <input type="tel" id="telefono" name="telefono" class="form-control mb-3" required>
 
             <label for="correo" class="form-label">Correo:</label>
-            <input type="email" id="correo" class="form-control mb-3" required>
+            <input type="email" id="correo" name="correo" class="form-control mb-3" required>
 
             <label for="github" class="form-label">Url de GitHub:</label>
-            <input type="url" id="github" class="form-control mb-3" required>
+            <input type="url" id="github" name="github" class="form-control mb-3" required>
 
             <label for="perfil" class="form-label">Perfil laboral:</label>
-            <select id="perfil" class="form-select mb-3">
+            <select id="perfil" name="perfil" class="form-select mb-3">
                 <option>Programador frontend</option>
                 <option>Programador backend</option>
                 <option>Programador fullstack</option>
@@ -40,13 +40,13 @@
             </select>
 
             <label for="salario" class="form-label">Salario esperado:</label>
-            <input type="number" step="10" id="salario" class="form-control mb-3" min="500" max="3000" name="salarionumero" oninput="salariorange.value = this.value" required>
+            <input type="number" step="10" id="salario" class="form-control mb-3" min="500" max="3000" name="salario" oninput="salariorange.value = this.value" required>
             <input type="range" class="form-range" min="500" max="3000" name="salariorange" oninput="salarionumero.value = this.value"><br>
 
-            <input type="checkbox" id="conducir" class="form-check-input">
+            <input type="checkbox" id="conducir" name="conducir" class="form-check-input">
             <label for="conducir" class="form-check-label mb-3">Carnet de conducir:</label><br>
 
-            <input type="checkbox" id="viajar" class="form-check-input">
+            <input type="checkbox" id="viajar" name="viajar" class="form-check-input">
             <label for="viajar" class="form-check-label mb-3">Disponibilidad para viajar:</label><br>
 
             Preferencia ubicación puesto de trabajo:<br>
@@ -61,7 +61,7 @@
             <input type="file" id="curriculum" class="form-control"><br>
 
             <label for="color">Tu color preferido:</label>
-            <input type="color" id="color" class="form-control">
+            <input type="color" id="color" name="color" class="form-control">
 
             <button type="reset" class="btn btn-danger my-3">Reset</button>
             <button type="submit" class="btn btn-primary my-3">Enviar</button>
