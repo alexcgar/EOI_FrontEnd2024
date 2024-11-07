@@ -23,10 +23,21 @@
             <label for="salario" class="form-label">Salario esperado:</label>
             <input type="number" id="salario" class="form-control mb-3" required>
 
-            <input type="checkbox" id="conducir" class="form-check-input" required>
+            <input type="checkbox" id="conducir" class="form-check-input">
             <label for="conducir" class="form-check-label mb-3">Carnet de conducir:</label><br>
 
-            <button class="btn btn-primary mb-3">Enviar</button>
+            <input type="checkbox" id="viajar" class="form-check-input">
+            <label for="viajar" class="form-check-label mb-3">Disponibilidad para viajar:</label><br>
+
+            Preferencia ubicación puesto de trabajo:<br>
+            <input type="radio" name="provincia" id="alicante" class="form-check-input">
+            <label for="alicante" class="form-check-label">Alicante</label><br>
+            <input type="radio" name="provincia" id="valencia" class="form-check-input">
+            <label for="valencia" class="form-check-label">Valencia</label><br>
+            <input type="radio" name="provincia" id="castellon" class="form-check-input">
+            <label for="castellon" class="form-check-label">Castellón</label><br>
+
+            <button class="btn btn-primary my-3">Enviar</button>
         </form>
     </div>
 </body>
