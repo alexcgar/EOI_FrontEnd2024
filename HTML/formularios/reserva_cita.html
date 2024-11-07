@@ -7,14 +7,14 @@
 </head>
 <body>
     <form>
-        <label for="correo">Correo (identificador usuario):</label> 
-        <input type="text" id="correo" value="fernando@correo.com" readonly disabled><br>
+        <label for="correo">Correo (identificador usuario):</label><br>
+        <input type="email" id="correo" value="fernando@correo.com" readonly disabled><br>
 
-        <label for="nombre">Nombre completo (min. 3 caracteres):</label> 
+        <label for="nombre">Nombre completo (min. 3 caracteres):</label><br>
         <input type="text" id="nombre" value="Fernando Ruiz" minlength="3" maxlength="50" required><br>
 
-        <label for="observaciones">Observaciones</label>
-        <input type="text" id="observaciones" placeholder="Indícanos cualquier consideración adicional..." size="50"><br>
+        <label for="observaciones">Observaciones</label><br>
+        <textarea id="observaciones" placeholder="Indícanos cualquier consideración adicional..." rows="5"></textarea><br>
 
         <button>Enviar</button>
     </form>
