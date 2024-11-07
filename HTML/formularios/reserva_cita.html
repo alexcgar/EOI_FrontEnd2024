@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Reserva de cita</title>
 </head>
 <body>
+    <h1>Reserva de cita</h1>
+
     <form>
         <label for="correo">Correo (identificador usuario):</label><br>
         <input type="email" id="correo" value="fernando@correo.com" readonly disabled><br>
 
         <label for="nombre">Nombre completo (min. 3 caracteres):</label><br>
-        <input type="text" id="nombre" value="Fernando Ruiz" minlength="3" maxlength="50" required><br>
+        <input type="text" id="nombre" value="Fernando Ruiz" minlength="3" maxlength="50" required><br><br>
+
+        <label for="exampleDataList" class="form-label">¿Qué dirección prefieres?</label>
+        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Introduce para buscar...">
+        <datalist id="datalistOptions">
+            <option value="Alicante">
+            <option value="San Vicente">
+            <option value="Elche">
+            <option value="Murcia">
+        </datalist><br><br>
 
         <label for="observaciones">Observaciones</label><br>
         <textarea id="observaciones" placeholder="Indícanos cualquier consideración adicional..." rows="5"></textarea><br>
