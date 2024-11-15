@@ -1,7 +1,7 @@
 <?php
 
     $usuario = $_POST['usuario'];
-    $contrasena = $_POST['usuario'];
+    $contrasena = $_POST['contrasena'];
 
     if ($usuario == 'fernando' && $contrasena == '1234') {
         echo "Eres Fernando, y acabas de hacer login";
