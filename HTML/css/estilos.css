@@ -29,3 +29,19 @@ td, th {
 td:nth-child(3) {
     width: 15%;
 }
+
+.fondo-rosa {
+    background-color: pink;
+}
+
+.fondo-azul {
+    background-color: lightblue;
+}
+
+.fondo-amarillo {
+    background-color: yellow;
+}
+
+.fondo-verde {
+    background-color: greenyellow;
+}

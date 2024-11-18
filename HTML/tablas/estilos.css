@@ -1,3 +1,7 @@
+.border-purple {
+    border: 5px solid purple !important;
+}
+
 td:nth-child(2) {
     background-color: var(--bs-success-bg-subtle);
 }
