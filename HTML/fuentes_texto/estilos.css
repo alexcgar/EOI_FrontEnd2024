@@ -3,6 +3,10 @@ h1 {
 }
 
 .ordenador {
-    color: skyblue;
-    font-family: monospace;
+    font-family: "Sixtyfour Convergence", sans-serif;
 }
+
+.animales {
+  font-family: "Kalnia Glaze", sans-serif;
+}
+
