@@ -8,3 +8,7 @@ document.getElementById('selector-tema').addEventListener('change', function() {
         document.getElementById('enlace-tema').href = `https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/${tema}/bootstrap.min.css`;
     }
 });
+
+document.getElementById('selector-claro-oscuro').addEventListener('change', function() {
+    document.body.setAttribute('data-bs-theme', this.value);
+});
