@@ -1,12 +1,19 @@
 h1 {
     color: midnightblue;
+    font-family: "Honk", sans-serif;
+    font-size: 400%;
+    text-transform: uppercase;
+    text-decoration: underline orange wavy;
+    letter-spacing: 5px;
 }
 
 .ordenador {
     font-family: "Sixtyfour Convergence", sans-serif;
+    font-size: 150%;
 }
 
 .animales {
   font-family: "Kalnia Glaze", sans-serif;
+  font-size: 150%;
 }
 
