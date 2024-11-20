@@ -1,20 +1,27 @@
-document.getElementById('selector-claro-oscuro').addEventListener('change', function() {
+const selectorClaroOscuro = document.getElementById('selector-claro-oscuro');
+const selectorTema = document.getElementById('selector-tema');
+
+selectorClaroOscuro.addEventListener('change', function() {
     actualizaOpcionClaroOscuro(this.value);
 
     localStorage.setItem("opcion-claro-oscuro", this.value);
 });
 
-document.getElementById('selector-tema').addEventListener('change', function() {
+selectorTema.addEventListener('change', function() {
     actualizaTema(this.value);
 
     localStorage.setItem("opcion-tema", this.value);
 });
 
 function actualizaOpcionClaroOscuro(opcion) {
+    selectorClaroOscuro.value = opcion;
+    
     document.body.setAttribute('data-bs-theme', opcion);
 }
 
-function actualizaTema(tema ) {
+function actualizaTema(tema) {
+    selectorTema.value = tema;
+
     if (tema == "bootstrap") {
         document.getElementById('enlace-tema').href = `https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css`;
     }
