@@ -1,19 +1,23 @@
 .titulo1 {
     color: purple;
-    text-shadow: 2px 2px 2px #7f7fc1;
+    text-shadow:  1px 1px 1px yellow,
+                  2px 2px 2px #7f7fc1;
     font-family: "Slackey";
 }
 
 .titulo2 {
     color: #6ea418;
-    text-shadow: 2px 2px 2px #4e4ed7;
-    font-family: "Marcellus";
+    text-shadow:  1px 1px 1px purple,
+                  2px 2px 2px #4e4ed7;
+    font-family: "Freckle Face";
 }
 
 .caja-miniaturas:hover {
-    box-shadow: 0px 0px 10px #9a9add;
+    box-shadow:  0px 0px 5px yellow,
+                 0px 0px 15px #9a9add;
 }
 
 .caja-carrusel:hover {
-    box-shadow: 0px 0px 10px #b8dd9a;
+    box-shadow:  0px 0px 5px purple,
+                 0px 0px 15px #b8dd9a;
 }
