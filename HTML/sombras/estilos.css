@@ -17,6 +17,11 @@
                  0px 0px 15px #9a9add;
 }
 
+.caja-card:hover {
+    box-shadow:  0px 0px 5px rgb(0, 0, 128),
+                 0px 0px 15px #dddc9a;
+}
+
 .caja-carrusel:hover {
     box-shadow:  0px 0px 5px purple,
                  0px 0px 15px #b8dd9a;
