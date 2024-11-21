@@ -21,3 +21,15 @@
     box-shadow:  0px 0px 5px purple,
                  0px 0px 15px #b8dd9a;
 }
+
+.enlace {
+    text-decoration: none;
+    font-family: "Sixtyfour Convergence";
+    text-shadow:  0px 0px 5px darkblue,
+                  0px 0px 15px #b49add;
+} 
+
+.enlace:hover {
+    text-shadow:  0px 0px 5px rgb(93, 139, 0),
+                  0px 0px 15px #e60d1f;
+}       
