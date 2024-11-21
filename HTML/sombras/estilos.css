@@ -11,5 +11,9 @@
 }
 
 .caja-miniaturas:hover {
-    box-shadow: 0px 0px 5px #9a9add;
+    box-shadow: 0px 0px 10px #9a9add;
+}
+
+.caja-carrusel:hover {
+    box-shadow: 0px 0px 10px #b8dd9a;
 }
