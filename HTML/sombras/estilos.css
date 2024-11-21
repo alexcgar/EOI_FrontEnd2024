@@ -1,0 +1,15 @@
+.titulo1 {
+    color: purple;
+    text-shadow: 2px 2px 2px #7f7fc1;
+    font-family: "Slackey";
+}
+
+.titulo2 {
+    color: #6ea418;
+    text-shadow: 2px 2px 2px #4e4ed7;
+    font-family: "Marcellus";
+}
+
+.caja-miniaturas:hover {
+    box-shadow: 0px 0px 5px #9a9add;
+}
