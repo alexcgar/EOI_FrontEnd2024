@@ -1,15 +1,17 @@
 .titulo1 {
     color: purple;
-    text-shadow:  1px 1px 1px yellow,
-                  2px 2px 2px #7f7fc1;
+    text-shadow:  2px 2px 2px yellow,
+                  4px 4px 4px #7f7fc1;
     font-family: "Slackey";
+    font-size: 400%;
 }
 
 .titulo2 {
     color: #6ea418;
-    text-shadow:  1px 1px 1px purple,
-                  2px 2px 2px #4e4ed7;
+    text-shadow:  2px 2px 2px purple,
+                  4px 4px 4px #4e4ed7;
     font-family: "Freckle Face";
+    font-size: 300%;
 }
 
 .caja-miniaturas:hover {
@@ -32,9 +34,10 @@
     font-family: "Sixtyfour Convergence";
     text-shadow:  0px 0px 5px darkblue,
                   0px 0px 15px #b49add;
+    font-size: 250%;
 } 
 
 .enlace:hover {
-    text-shadow:  0px 0px 5px rgb(93, 139, 0),
+    text-shadow:  0px 0px 5px #5d8b00,
                   0px 0px 15px #e60d1f;
 }       
