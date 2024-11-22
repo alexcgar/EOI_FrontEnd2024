@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="10.formularios.js"></script>
+</head>
+<body>
+    <form id="formProducto">
+        <p><input type="text" name="nombre" id="nombre" placeholder="Nombre" required></p>
+        <p><input type="text" name="descripcion" id="descripcion" placeholder="Descripcion" required></p>
+        <p><input type="number" name="precio" id="precio" step="0.01" placeholder="Precio" required></p>
+        <button type="submit">Añadir</button>
+    </form>
+
+    <table id="tablaProductos">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+</html>
