@@ -1,0 +1,535 @@
+/* Establecer el fondo negro y el color del texto blanco */
+body {
+    background-color: black; /* Fondo negro */
+    color: white; /* Color del texto blanco para mejor visibilidad */
+    margin: 0; /* Eliminar margen predeterminado */
+    padding: 0; /* Eliminar relleno predeterminado */
+    overflow: hidden; /* Evita que el contenido se desplace fuera de la vista */
+}
+
+/* Contenedor para los botones de efectos */
+.effects-container {
+    display: flex; /* Uso de flexbox para alinear los botones */
+    flex-wrap: wrap; /* Permitir que los botones se envuelvan en varias líneas */
+    gap: 10px; /* Espacio entre los botones */
+    justify-content: center; /* Centrar los botones horizontalmente */
+    margin-top: 20px; /* Margen superior para separar del borde de la ventana */
+}
+
+/* Estilos para los botones de efectos */
+.effects-container button {
+    padding: 10px 20px; /* Relleno interno para hacer los botones más grandes */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar el cursor a un puntero cuando se pasa sobre el botón */
+    background-color: #007bff; /* Color de fondo azul */
+    color: white; /* Color del texto blanco */
+    border: none; /* Eliminar borde predeterminado */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+.effects-container button:hover {
+    background-color: #0056b3; /* Cambiar el color de fondo al pasar el ratón */
+}
+
+/* Efecto de lluvia */
+.raindrop {
+    position: absolute; /* Posición absoluta para colocar las gotas de lluvia en cualquier lugar */
+    width: 2px; /* Ancho de la gota de lluvia */
+    height: 20px; /* Altura de la gota de lluvia */
+    background-color: rgba(0, 122, 204, 0.9); /* Color de fondo con transparencia */
+    box-shadow: 0 0 20px rgba(0, 122, 204, 0.7),
+                0 0 5px rgba(0, 0, 0, 0.8); /* Sombra para dar profundidad */
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0; /* Inicialmente invisible */
+    animation: rainfall linear infinite; /* Animación de caída */
+    visibility: hidden; /* Inicialmente oculto */
+}
+
+@keyframes rainfall {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+        visibility: visible;
+    }
+    20% {
+        opacity: 1;
+    }
+    95% {
+        transform: translateY(95vh);
+        visibility: hidden;
+    }
+}
+
+/* Efecto de nieve */
+.snowflake {
+    position: absolute; /* Posición absoluta para colocar los copos de nieve en cualquier lugar */
+    width: 20px; /* Ancho del copo de nieve */
+    height: 20px; /* Altura del copo de nieve */
+    background-color: rgba(255, 255, 255, 0.95); /* Color de fondo blanco con transparencia */
+    border-radius: 50%; /* Bordes redondeados para hacer un círculo */
+    border: 2px solid rgba(255, 255, 255, 1); /* Borde blanco */
+    box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.9),
+        0 0 10px rgba(0, 0, 0, 0.7); /* Sombra para dar profundidad */
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0; /* Inicialmente invisible */
+    animation: snowfall linear infinite; /* Animación de caída */
+    visibility: hidden; /* Inicialmente oculto */
+}
+
+@keyframes snowfall {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+        visibility: visible;
+    }
+    20% {
+        opacity: 1;
+    }
+    95% {
+        transform: translateY(95vh);
+        visibility: hidden;
+    }
+}
+
+/* Efecto de burbujas */
+.bubble {
+    position: absolute; /* Posición absoluta para colocar las burbujas en cualquier lugar */
+    border-radius: 50%; /* Bordes redondeados para hacer un círculo */
+    background: radial-gradient(circle at 30% 30%, rgba(0, 122, 204, 0.9), rgba(255, 255, 255, 0.3)); /* Gradiente radial para el fondo */
+    border: 3px solid rgba(0, 122, 204, 0.9); /* Borde azul */
+    box-shadow: 0 0 25px rgba(0, 122, 204, 0.9), 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidad */
+    animation: floatUpBubble linear infinite; /* Animación de flotación */
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0; /* Inicialmente invisible */
+    overflow: hidden; /* Ocultar el contenido que se desborda */
+    top: 95%; /* Posición inicial en la parte inferior */
+}
+
+@keyframes floatUpBubble {
+    0% {
+        transform: translateY(0) scale(0.1);
+        opacity: 0.1;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Efecto de estrellas */
+.star {
+    position: absolute; /* Posición absoluta para colocar las estrellas en cualquier lugar */
+    width: 5px; /* Ancho de la estrella */
+    height: 5px; /* Altura de la estrella */
+    background: rgba(0, 122, 255, 0.9); /* Color de fondo azul con transparencia */
+    border-radius: 50%; /* Bordes redondeados para hacer un círculo */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Borde negro */
+    box-shadow: 0 0 25px rgba(0, 122, 255, 0.8),
+                0 0 50px rgba(0, 122, 255, 0.6),
+                0 0 100px rgba(0, 122, 255, 0.4); /* Sombra para dar profundidad */
+    animation: starTwinkle 2s infinite ease-in-out; /* Animación de parpadeo */
+    pointer-events: none; /* Ignorar eventos del ratón */
+}
+
+@keyframes starTwinkle {
+    0% {
+        opacity: 0.6;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+    100% {
+        opacity: 0.6;
+        transform: scale(0.8);
+    }
+}
+
+/* Efecto de tormenta */
+.bolt {
+    position: absolute; /* Posición absoluta para colocar los rayos en cualquier lugar */
+    width: 2px; /* Ancho del rayo */
+    background-color: blue; /* Color de fondo azul */
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0; /* Inicialmente invisible */
+    box-shadow: 0 0 10px gray; /* Sombra para dar profundidad */
+    animation: bolt-flash 0.2s linear infinite; /* Animación de destello */
+}
+
+@keyframes bolt-flash {
+    0% { opacity: 0; }
+    30% { opacity: 1; }
+    40% { opacity: 0; }
+    60% { opacity: 1; }
+    80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Efecto de luciérnagas */
+.firefly {
+    position: absolute; /* Posición absoluta para colocar las luciérnagas en cualquier lugar */
+    border-radius: 50%; /* Bordes redondeados para hacer un círculo */
+    background: rgba(255, 223, 0, 0.8); /* Color de fondo amarillo con transparencia */
+    box-shadow: 0 0 15px rgba(255, 223, 0, 0.8), 0 0 30px rgba(255, 223, 0, 0.4); /* Sombra para dar profundidad */
+    animation: fireflyGlow linear infinite alternate; /* Animación de brillo */
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0.8; /* Opacidad inicial */
+}
+
+@keyframes fireflyGlow {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-10px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.6;
+    }
+}
+
+/* Efecto de brillo */
+.glow {
+    position: absolute; /* Posición absoluta para colocar el brillo en cualquier lugar */
+    border-radius: 50%; /* Bordes redondeados para hacer un círculo */
+    background: rgba(255, 215, 0, 0.8); /* Color de fondo amarillo con transparencia */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.4); /* Sombra para dar profundidad */
+    animation: glowPulse linear infinite alternate; /* Animación de pulso */
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0.9; /* Opacidad inicial */
+}
+
+@keyframes glowPulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
+}
+
+/* Efecto de gotas */
+.drop {
+    position: absolute; /* Posición absoluta para colocar las gotas en cualquier lugar */
+    border-radius: 50%; /* Bordes redondeados para hacer un círculo */
+    background: rgba(0, 122, 255, 0.5); /* Color de fondo azul con transparencia */
+    box-shadow: 0 0 15px rgba(0, 122, 255, 0.6); /* Sombra para dar profundidad */
+    animation: dropRipple linear infinite; /* Animación de onda */
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0.8; /* Opacidad inicial */
+}
+
+@keyframes dropRipple {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Efecto de niebla */
+.fog {
+    position: absolute; /* Posición absoluta para colocar la niebla en cualquier lugar */
+    background: radial-gradient(circle, rgba(200, 200, 200, 0.5) 0%, rgba(255, 255, 255, 0) 70%); /* Gradiente radial para el fondo */
+    /* Textura difusa con un degradado radial para la niebla */
+    border-radius: 50%; /* Bordes redondeados para hacer un círculo */
+    animation: fogDrift linear infinite; /* Animación de deriva */
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0.3; /* Opacidad inicial */
+}
+
+@keyframes fogDrift {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translate(-30px, 10px) scale(1.1); /* Movimiento suave y escala variable */
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(30px, -10px) scale(1); /* Movimiento continuo en ambas direcciones */
+        opacity: 0.4;
+    }
+}
+
+/* Efecto de meteoros */
+.meteor {
+    position: absolute; /* Posición absoluta para colocar los meteoros en cualquier lugar */
+    top: 0px; /* Posición inicial en la parte superior */
+    width: 5px; /* Ancho del meteoro */
+    height: 50px; /* Altura del meteoro */
+    background: linear-gradient(to top, rgba(255, 69, 0, 1), rgba(255, 69, 0, 0)); /* Gradiente lineal para el fondo */
+    box-shadow: 0 0 20px rgba(255, 69, 0, 1), 0 0 40px rgba(255, 69, 0, 0.8), 0 0 60px rgba(255, 0, 0, 0.6); /* Sombra para dar profundidad */
+    border-radius: 50%; /* Bordes redondeados para hacer un círculo */
+    transform: rotate(45deg); /* Rotación inicial */
+    animation: meteorMovement linear infinite; /* Animación de movimiento */
+    pointer-events: none; /* Ignorar eventos del ratón */
+}
+
+@keyframes meteorMovement {
+    0% {
+        transform: translateX(0) translateY(0) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100vw) translateY(90vh) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* Efecto de supernova */
+.supernova {
+    position: absolute; /* Posición absoluta para colocar la supernova en cualquier lugar */
+    border-radius: 50%; /* Bordes redondeados para hacer un círculo */
+    background: radial-gradient(circle, rgba(255, 255, 0, 1), rgba(255, 69, 0, 0.7), rgba(255, 0, 0, 0.5)); /* Gradiente radial para el fondo */
+    box-shadow: 0 0 50px rgba(255, 255, 0, 1), 0 0 100px rgba(255, 69, 0, 0.7), 0 0 150px rgba(255, 0, 0, 0.5); /* Sombra para dar profundidad */
+    animation: supernovaExplosion linear infinite; /* Animación de explosión */
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0.8; /* Opacidad inicial */
+}
+
+@keyframes supernovaExplosion {
+    0% {
+        transform: scale(0.1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Efecto de agujero negro */
+.blackHole {
+    position: absolute; /* Posición absoluta para colocar el agujero negro en cualquier lugar */
+    border-radius: 50%; /* Bordes redondeados para hacer un círculo */
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5), transparent 70%); /* Gradiente radial para el fondo */
+    box-shadow: 0 0 100px rgba(0, 0, 0, 1), 0 0 200px rgba(0, 0, 0, 0.8); /* Sombra para dar profundidad */
+    animation: blackHoleSpin linear infinite, blackHoleAbsorb linear infinite; /* Animación de giro y absorción */
+    pointer-events: none; /* Ignorar eventos del ratón */
+}
+
+@keyframes blackHoleSpin {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    100% {
+        transform: rotate(360deg) scale(1.1);
+    }
+}
+
+@keyframes blackHoleAbsorb {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5); /* Simula que el agujero "absorbe" */
+    }
+}
+
+/* Efecto de ondas */
+.ripplesCanvas {
+    position: fixed; /* Posición fija para mantener el canvas en su lugar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0.8; /* Opacidad inicial */
+}
+
+/* Efecto de ondas difusas */
+.blurredRipplesCanvas {
+    position: fixed; /* Posición fija para mantener el canvas en su lugar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0.8; /* Opacidad inicial */
+}
+
+/* Efecto de ondas cuánticas */
+.quantum-ripple {
+    position: absolute; /* Posición absoluta para colocar las ondas cuánticas en cualquier lugar */
+    border-radius: 50%; /* Bordes redondeados para hacer un círculo */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.5), transparent); /* Gradiente radial para el fondo */
+    box-shadow: 0 0 50px rgba(0, 0, 255, 0.8), 0 0 100px rgba(255, 255, 255, 0.5); /* Sombra para dar profundidad */
+    animation: rippleExpand linear infinite, rippleFlicker ease-in-out infinite; /* Animación de expansión y parpadeo */
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0.6; /* Opacidad inicial */
+}
+
+@keyframes rippleExpand {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes rippleFlicker {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0.3; /* Simula partículas que desaparecen y reaparecen */
+    }
+}
+
+/* Efecto de vidrio roto */
+.crackedCanvas {
+    position: absolute; /* Posición absoluta para colocar el canvas en cualquier lugar */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 1; /* Opacidad inicial */
+}
+
+@keyframes cracksFadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Efecto de explosión */
+.explosionParticle {
+    position: absolute; /* Posición absoluta para colocar las partículas de la explosión en cualquier lugar */
+    width: 5px; /* Ancho de la partícula */
+    height: 5px; /* Altura de la partícula */
+    background-color: rgba(255, 69, 0, 0.9); /* Color de fondo naranja con transparencia */
+    border-radius: 50%; /* Bordes redondeados para hacer un círculo */
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 1; /* Opacidad inicial */
+    animation: explosionParticleMove ease-out forwards; /* Animación de movimiento */
+}
+
+@keyframes explosionParticleMove {
+    to {
+        transform: translate(var(--translateX), var(--translateY));
+        opacity: 0;
+    }
+}
+
+/* Efecto de viaje espacial */
+.spaceTravelCanvas {
+    position: absolute; /* Posición absoluta para colocar el canvas en cualquier lugar */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0.75; /* Opacidad inicial */
+    background-color: black; /* Color de fondo negro */
+    z-index: -10; /* Índice z para colocar el canvas detrás de otros elementos */
+}
+
+@keyframes spaceTravelFadeOut {
+    0% {
+        opacity: 0.75;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Efecto de aurora boreal */
+.aurora {
+    position: absolute; /* Posición absoluta para colocar la aurora en cualquier lugar */
+    left: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 255, 255, 0.3) 25%,
+      rgba(0, 127, 255, 0.4) 50%,
+      rgba(127, 0, 255, 0.3) 75%,
+      transparent 100%
+    ); /* Gradiente lineal para el fondo */
+    background-size: 100% 200%; /* Tamaño del fondo */
+    animation: auroraAnimation linear infinite; /* Animación de la aurora */
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0; /* Opacidad inicial */
+    filter: blur(50px); /* Filtro de desenfoque */
+}
+
+@keyframes auroraAnimation {
+    0% {
+        opacity: 0;
+        background-position: 0% 0%;
+    }
+    10% {
+        opacity: 1;
+    }
+    50% {
+        background-position: 0% 100%;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        background-position: 0% 0%;
+    }
+}
+
+/* Efecto de olas del mar */
+.seaCanvas {
+    position: fixed; /* Posición fija para mantener el canvas en su lugar */
+    left: 0;
+    width: 100%;
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 0.9; /* Opacidad inicial */
+}
+
+/* Efecto de la matriz */
+.matrixCanvas {
+    position: absolute; /* Posición absoluta para colocar el canvas en cualquier lugar */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Ignorar eventos del ratón */
+    opacity: 1; /* Opacidad inicial */
+}
+
+@keyframes matrixFadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
