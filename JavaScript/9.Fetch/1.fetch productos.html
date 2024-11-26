@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module" src="1.fetch productos.js"></script>
+    <style>
+      table {
+        border-spacing: 0px;
+        
+        tr:nth-child(even) {
+            background-color: #eee;
+        }
+
+        td,th{
+            padding: 0.2em 1em;
+        }
+        td {
+          vertical-align: center;
+          img {
+            height: 30px;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <table id="productsTable">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Imagen</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <template id="productsTemplate">
+      <tr>
+        <td></td>
+        <td><img src="" alt="" /></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </template>
+  </body>
+</html>
