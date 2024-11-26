@@ -24,5 +24,32 @@
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/4iNMyilmDfg?si=jqI_mJzqy8NM91CZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     
+    <h2>Vídeo directo sin pasar por YouTube</h2>
+
+    <video width="560" src="https://fernandoruizrico.com/examples/test-media/video/sintel/trailer/sintel_trailer-480p.mp4" poster="https://fernandoruizrico.com/examples/test-media/video/caminandes-llamigos/stills/poster.jpg" loop muted controls></video>
+
+    <h2>Elementos audio de ejemplo</h2>
+
+    <audio id="audio1" src="https://fernandoruizrico.com/examples/test-media/audio/quizzes/countdownRunning/Song1.mp3" controls></audio>
+
+    <audio id="audio2" src="https://fernandoruizrico.com/examples/test-media/audio/quizzes/countdownEnd/Song0.mp3" controls></audio>
+
+    <audio id="audio3" src="https://fernandoruizrico.com/examples/test-media/audio/quizzes/lobby/Song2.mp3" controls></audio>
+
+    <script>
+        const player1 = document.getElementById("audio1");
+        const player2 = document.getElementById("audio2");
+        const player3 = document.getElementById("audio3");
+    </script>
+    
+    <br>
+
+    <button onclick="player1.play()">Play 1</button>
+    <button onclick="player1.pause()">Pause 1</button>
+    <button onclick="player2.play()">Play 2</button>
+    <button onclick="player2.pause()">Pause 2</button>
+    <button onclick="player3.play()">Play 3</button>
+    <button onclick="player3.pause()">Pause 3</button>
+
 </body>
 </html>
