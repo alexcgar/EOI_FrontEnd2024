@@ -6,14 +6,16 @@
 const lista = document.getElementById("tareasList");
 
 // Cambia este código para usar async/await
-// fetch("http://localhost:3000/tasks")
-//   .then((r) => r.json())
-//   .then((datos) => datos.tasks.forEach(mostrarTarea));
-
-function mostrarTarea(tarea) {
-    const li = document.createElement("li");
-    li.textContent = `${tarea.id} - ${tarea.description}`;
-    lista.append(li);
+async function obtenerTareas() {
+  const resp = await fetch("http://localhost:3000/tasks");
+  const datos = await resp.json();
+  datos.tasks.forEach(mostrarTarea);
 }
 
+function mostrarTarea(tarea) {
+  const li = document.createElement("li");
+  li.textContent = `${tarea.id} - ${tarea.description}`;
+  lista.append(li);
+}
 
+obtenerTareas();
