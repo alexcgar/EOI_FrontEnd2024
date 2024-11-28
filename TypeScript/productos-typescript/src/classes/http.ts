@@ -21,7 +21,7 @@ export class Http {
     return this.ajax<T>("GET", url);
   }
 
-  post<T>(url: string, data: any): Promise<T> {
+  post<T, U>(url: string, data: U): Promise<T> {
     return this.ajax<T>(
       "POST",
       url,
@@ -32,7 +32,7 @@ export class Http {
     );
   }
 
-  put<T>(url: string, data: any): Promise<T> {
+  put<T, U>(url: string, data: U): Promise<T> {
     return this.ajax<T>(
       "PUT",
       url,

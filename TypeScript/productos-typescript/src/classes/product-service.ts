@@ -12,7 +12,7 @@ export class ProductService {
   }
 
   async insertProduct(product: Product): Promise<Product> {
-    const resp = await this.#http.post<SingleProductResponse>(this.#urlProductos, product);
+    const resp = await this.#http.post<SingleProductResponse, Product>(this.#urlProductos, product);
     return resp.product;
   }
 
