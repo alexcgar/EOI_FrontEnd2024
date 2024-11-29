@@ -10,5 +10,5 @@ import { ProductsPageComponent } from './products-page/products-page.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'productos';
+  title = 'Productos';
 }
