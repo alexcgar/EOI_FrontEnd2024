@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module" src="4.productos http.js"></script>
+    <style>
+      table {
+        border-spacing: 0px;
+        
+        tr:nth-child(even) {
+            background-color: #eee;
+        }
+
+        td,th{
+            padding: 0.2em 1em;
+        }
+        td {
+          vertical-align: center;
+          img {
+            height: 30px;
+          }
+
+          .delete {
+            background-color: red;
+            color: white;
+            border: 0;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:active {
+              background-color: white;
+              color: red;
+            }
+          }
+        }
+      }
+
+      #imgPreview {
+        max-width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="formProducto">
+      <p><input type="text" name="description" placeholder="Descripcion" required></p>
+      <p><input type="number" name="price" placeholder="Precio" required></p>
+      <p>Foto: <input type="file" name="image" required></p>
+      <p><img id="imgPreview" src=""></p> <!-- Para previsualizar la imagen seleccionada -->
+      <button type="submit">Añadir</button>
+    </form>
+
+    <table id="productsTable">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Imagen</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <template id="productsTemplate">
+      <tr>
+        <td></td>
+        <td><img src="" alt="" /></td>
+        <td></td>
+        <td></td>
+        <td><button class="delete">X</button></td>
+      </tr>
+    </template>
+  </body>
+</html>
