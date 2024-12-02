@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductsPageComponent {
   title = "Mi lista de productos";
+
   products: Product[] = [{
     id: 1,
     description: 'SSD hard drive',
@@ -25,4 +26,10 @@ export class ProductsPageComponent {
     imageUrl: '/motherboard.webp',
     rating: 4
   }];
+
+  showImage = true;
+
+  toggleImage() {
+    this.showImage = !this.showImage;
+  }
 }
