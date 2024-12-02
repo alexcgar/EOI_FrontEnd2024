@@ -1,10 +1,18 @@
 1. ng new -S angular-products
 
-2. Opcional:
+2. Instalar eslint para detección de posibles errores (opcional):
    ng add @angular-eslint/schematics
    ng add @angular-eslint/schematics@next
 
-3. En "app.component.html":
+3. Probamos el proyecto. 
+   Ejecutamos el comando "ng serve" dentro de la carpeta "angular-products":
+   cd angular-products
+   ng serve
+
+   Abrimos el navegador con la siguiente url:
+   http://localhost:4200/
+
+   En "app.component.html":
    <span>{{ title }} app is running!</span>
 
 4. npm i bootstrap
