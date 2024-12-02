@@ -132,6 +132,11 @@
       </div>
     </div>
 
+    Con la sintaxis antigua sería así:
+    <div *ngIf="products.length" class="table-responsive">...</div>
+    <h3 *ngIf="!products.length">...</h3>
+    (Hay que añadir "imports: [CommonModule]" en el fichero ".ts")
+
 14. En "products-page.component.ts":
     export class ProductsPageComponent {
         title = "Mi lista de productos";
@@ -164,6 +169,14 @@
         }
     </tbody>
 
+    Con la sintaxis antigua sería así:
+    <tr *ngFor="let product of products">
+        <td>{{product.description}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.available}}</td>
+    </tr>
+    (Hay que añadir "imports: [CommonModule]" en el fichero ".ts")
+
 16. En "products-page.component.css":
     td {
         vertical-align: middle;
@@ -173,7 +186,7 @@
         }
     }
 
-17. En "products-page.component.html":
+17. Añadimos las imágenes de cada producto, y un botón para activar/desactivar la visualización de las mismas en "products-page.component.html":
     <thead>
         <tr>
             <th>
