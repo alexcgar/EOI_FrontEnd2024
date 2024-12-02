@@ -12,7 +12,13 @@
 5. En "styles.css":
    @import "bootstrap/dist/css/bootstrap.css";
 
-6. ng g c products-page
+6. Quitar prefijo de componentes en "angular.json":
+      ...
+      "prefix": ""
+      ...
+
+   Crear el componente de la página de productos:
+   ng g c products-page
 
 7. En "products-page.component.html":
     <div class="card">
@@ -169,10 +175,10 @@
     <tbody>
         @for (product of products; track product.id) {
             <tr>
-            <td>@if (showImage) { <img [src]="product.imageUrl" alt=""> }</td>
-            <td>{{product.description}}</td>
-            <td>{{product.price}}</td>
-            <td>{{product.available}}</td>
+              <td>@if (showImage) { <img [src]="product.imageUrl" alt=""> }</td>
+              <td>{{product.description}}</td>
+              <td>{{product.price}}</td>
+              <td>{{product.available}}</td>
             </tr>
         }
     </tbody>
@@ -227,11 +233,11 @@
         </div>
       </label>
       @if (newProduct.imageUrl) {
-      <div class="row mb-3">
-        <div class="col-sm-10 offset-sm-2">
-          <img class="product-img" [src]="newProduct.imageUrl" alt="" />
+        <div class="row mb-3">
+          <div class="col-sm-10 offset-sm-2">
+            <img class="product-img" [src]="newProduct.imageUrl" alt="" />
+          </div>
         </div>
-      </div>
       }
 
       <div class="mb-3 row">
