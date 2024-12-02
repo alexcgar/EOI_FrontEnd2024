@@ -41,7 +41,7 @@
     <div class="card-header bg-primary text-white">
         Mi lista de productos
     </div>
-    <div class="card-block">
+    <div class="card-body">
         <div class="table-responsive">
           <table class="table table-striped m-0">
               <thead>
@@ -79,9 +79,10 @@
         <products-page></products-page>
     </div>
 
-10. ng g interface interfaces/product
+10. Generamos la interfaz que representa cada producto:
+    ng g interface interfaces/product
 
-11. En "product.ts":
+11. En "interfaces/product.ts":
     export interface Product {
         id?: number;
         description: string;
@@ -104,31 +105,31 @@
         products: Product[] = [];
     }
 
-13. En "products-page.html":
+13. Añadimos el condicional "@if" en "products-page.component.html":
     <div class="card">
-    <div class="card-header bg-primary text-white">
-        {{ title }}
-    </div>
-    <div class="card-block">
-        @if (products.length) {
-            <div class="table-responsive">
-                <table class="table table-striped m-0">
-                <thead>
-                    <tr>
-                    <th>Producto</th>
-                    <th>Precio</th>
-                    <th>Disponible</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Por ahora vacío. Aquí van los productos -->
-                </tbody>
-                </table>
-            </div>
-        } @else {
-            <h3 class="p-4">No hay productos disponibles</h3>
-        }
-    </div>
+      <div class="card-header bg-primary text-white">
+          {{ title }}
+      </div>
+      <div class="card-body">
+          @if (products.length) {
+              <div class="table-responsive">
+                  <table class="table table-striped m-0">
+                    <thead>
+                        <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Disponible</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Por ahora vacío. Aquí van los productos -->
+                    </tbody>
+                  </table>
+              </div>
+          } @else {
+              <h3 class="p-4">No hay productos disponibles</h3>
+          }
+      </div>
     </div>
 
 14. En "products-page.component.ts":
@@ -152,7 +153,7 @@
         }];
     }
 
-15. En "products-page.component.html":
+15. Añadimos el bucle "@for" en "products-page.component.html":
     <tbody>
         @for (product of products; track product.id) {
             <tr>
