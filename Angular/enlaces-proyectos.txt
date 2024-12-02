@@ -1,0 +1,7 @@
+Memory game:
+- https://github.com/theguitxo/memory-game
+- https://guitxo-angular-memory-game.netlify.app/
+
+Plantilla Phaser + Angular:
+- https://phaser.io/news/2024/03/phaser-3-and-angular-template
+- https://github.com/phaserjs/template-angular/tree/main

@@ -1,0 +1,362 @@
+1. ng new -S angular-products
+
+2. Opcional:
+   ng add @angular-eslint/schematics
+   ng add @angular-eslint/schematics@next
+
+3. En "app.component.html":
+   <span>{{ title }} app is running!</span>
+
+4. npm i bootstrap
+
+5. En "styles.css":
+   @import "bootstrap/dist/css/bootstrap.css";
+
+6. ng g c products-page
+
+7. En "products-page.component.html":
+    <div class="card">
+    <div class="card-header bg-primary text-white">
+        Mi lista de productos
+    </div>
+    <div class="card-block">
+        <div class="table-responsive">
+        <table class="table table-striped m-0">
+            <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Disponible</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Por ahora vacío. Aquí van los productos -->
+            </tbody>
+        </table>
+        </div>
+    </div>
+    </div>
+
+8. En "app.component.ts": 
+    @Component({
+        selector: 'app-root',
+        standalone: true,
+        imports: [RouterOutlet, ProductsPageComponent],
+        templateUrl: './app.component.html',
+        styleUrl: './app.component.css'
+    })
+    export class AppComponent {
+        title = 'Angular Products';
+    }
+
+9. En "app.component.html":
+    <div class="container">
+        <h1>
+            {{title}}
+        </h1>
+        <products-page></products-page>
+    </div>
+
+10. ng g interface interfaces/product
+
+11. En "product.ts":
+    export interface Product {
+        id?: number;
+        description: string;
+        price: number;
+        available: string;
+        imageUrl: string;
+        rating: number;
+    }
+
+12. En "products-page.ts":
+    @Component({
+        selector: 'products-page',
+        standalone: true,
+        imports: [],
+        templateUrl: './products-page.component.html',
+        styleUrl: './products-page.component.css'
+    })
+    export class ProductsPageComponent {
+        title = "Mi lista de productos";
+        products: Product[] = [];
+    }
+
+13. En "products-page.html":
+    <div class="card">
+    <div class="card-header bg-primary text-white">
+        {{ title }}
+    </div>
+    <div class="card-block">
+        @if (products.length) {
+            <div class="table-responsive">
+                <table class="table table-striped m-0">
+                <thead>
+                    <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Disponible</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Por ahora vacío. Aquí van los productos -->
+                </tbody>
+                </table>
+            </div>
+        } @else {
+            <h3 class="p-4">No hay productos disponibles</h3>
+        }
+    </div>
+    </div>
+
+14. En "products-page.component.ts":
+    export class ProductsPageComponent {
+        title = "Mi lista de productos";
+
+        products: Product[] = [{
+            id: 1,
+            description: 'SSD hard drive',
+            available: '2016-10-03',
+            price: 75,
+            imageUrl: '/ssd.jpg',
+            rating: 5
+        },{
+            id: 2,
+            description: 'LGA1151 Motherboard',
+            available: '2016-09-15',
+            price: 96.95,
+            imageUrl: '/motherboard.jpg',
+            rating: 4
+        }];
+    }
+
+15. En "products-page.component.html":
+    <tbody>
+        @for (product of products; track product.id) {
+            <tr>
+                <td>{{product.description}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.available}}</td>
+            </tr>
+        }
+    </tbody>
+
+16. En "products-page.component.css":
+    td {
+        vertical-align: middle;
+
+        img {
+            height: 40px;
+        }
+    }
+
+17. En "products-page.component.html":
+    <thead>
+        <tr>
+            <th>
+                <button class="btn btn-sm" [ngClass]="{
+                    'btn-danger': this.showImage,
+                    'btn-primary': !this.showImage,
+                }" (click)="toggleImage()">
+                {{showImage?'Hide':'Show'}} images
+                </button>
+            </th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Disponible</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (product of products; track product.id) {
+            <tr>
+            <td>@if (showImage) { <img [src]="product.imageUrl" alt=""> }</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.available}}</td>
+            </tr>
+        }
+    </tbody>
+
+18. En "products-page.component.ts":
+    @Component({
+        //...
+        imports: [NgClass],
+        //...
+        })
+        export class ProductsPageComponent {
+        //...
+
+        showImage = true;
+
+        toggleImage() {
+            this.showImage = !this.showImage;
+        }
+    }
+
+19. En "products-page.component.html":
+    <td><img [src]="product.imageUrl" [class.d-none]="!showImage" alt=""></td>
+
+
+20. En "products-page.component.html":
+<div class="card mb-4">
+  <div class="card-header bg-success text-white">Add product</div>
+  <div class="card-body">
+    <form (ngSubmit)="addProduct()">
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end">Description</span>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="description" [(ngModel)]="newProduct.description"/>
+        </div>
+      </label>
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end">Price</span>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" name="price" [(ngModel)]="newProduct.price" />
+        </div>
+      </label>
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end">Available</span>
+        <div class="col-sm-10">
+          <input  type="date"  class="form-control"  name="available" [(ngModel)]="newProduct.available"  />
+        </div>
+      </label>
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end"> Image</span>
+        <div class="col-sm-10">
+          <input type="file" class="form-control" accept="image/*" (change)="changeImage($event)" name="fileName" [(ngModel)]="fileName" />
+        </div>
+      </label>
+      @if (newProduct.imageUrl) {
+      <div class="row mb-3">
+        <div class="col-sm-10 offset-sm-2">
+          <img class="product-img" [src]="newProduct.imageUrl" alt="" />
+        </div>
+      </div>
+      }
+
+      <div class="mb-3 row">
+        <div class="offset-sm-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Card con la lista de productos aquí -->
+
+
+21. En "products-page.component.ts":
+export class ProductsPageComponent {
+  // Resto de propiedades
+
+  newProduct!: Product;
+  fileName = '';
+
+  constructor() {
+    this.resetProduct();
+  }
+
+  toggleImage() {
+    this.showImage = !this.showImage;
+  }
+
+  changeImage(event: Event) {
+    const fileInput = event.target as HTMLInputElement;
+    if (!fileInput.files?.length) return;
+    const reader = new FileReader();
+    reader.readAsDataURL(fileInput.files[0]);
+    reader.addEventListener('loadend', () => {
+      this.newProduct.imageUrl = reader.result as string;
+    });
+  }
+
+  addProduct() {
+    this.newProduct.id = Math.max(...this.products.map(p => p.id!)) + 1;
+    this.products.push(this.newProduct);
+    this.fileName = '';
+    this.resetProduct();
+  }
+
+  private resetProduct() {
+    this.newProduct = {
+      id: 0,
+      description: '',
+      available: '',
+      imageUrl: '',
+      rating: 1,
+      price: 0
+    };
+  }
+}
+
+22. En "products-page.component.html":
+<div class="card mb-4">
+  <div class="card-header bg-success text-white">Add product</div>
+  <div class="card-body">
+    <form (ngSubmit)="addProduct(productForm)" #productForm="ngForm">
+      <!-- Resto de campos -->
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end"> Image</span>
+        <div class="col-sm-10">
+          <input type="file" class="form-control" accept="image/*" #imgInput (change)="changeImage(imgInput)" name="fileName" ngModel />
+        </div>
+      </label>
+      <!-- Imagen y botón de submit -->
+    </form>
+  </div>
+</div>
+
+23. En "products-page.component.ts":
+export class ProductsPageComponent {
+  // Resto de propiedades ...
+  
+  newProduct: Product = { // Asignamos directamente
+    id: 0,
+    description: '',
+    available: '',
+    imageUrl: '',
+    rating: 1,
+    price: 0
+  };
+
+  toggleImage() {
+    this.showImage = !this.showImage;
+  }
+
+  changeImage(fileInput: HTMLInputElement) { // Referencia directa al input
+    if (!fileInput.files?.length) return;
+    const reader = new FileReader();
+    reader.readAsDataURL(fileInput.files[0]);
+    reader.addEventListener('loadend', () => {
+      this.newProduct.imageUrl = reader.result as string;
+    });
+  }
+
+  addProduct(productForm: NgForm) {
+    this.newProduct.id = Math.max(...this.products.map(p => p.id!)) + 1;
+    this.products.push({...this.newProduct}); // Clonamos objeto antes de añadirlo
+    productForm.resetForm();
+    this.newProduct.imageUrl = '';
+  }
+}
+
+24. En "products-page.component.html":
+<th>
+    @let buttonText = (showImage()?'Hide':'Show') + ' images';
+    <button class="btn btn-sm" [ngClass]="{
+        'btn-danger': this.showImage(),
+        'btn-primary': !this.showImage(),
+    }" (click)="toggleImage()">
+    {{ buttonText }}
+    </button>
+</th>
+
+25. En "products-page.component.ts":
+export class ProductsPageComponent {
+  //...
+  toggleImage() {
+    this.showImage.set(!this.showImage());
+  }
+  //...
+}
