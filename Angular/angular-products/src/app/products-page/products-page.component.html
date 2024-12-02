@@ -55,11 +55,15 @@
                             <th>
                                 <button class="btn btn-sm" 
                                     [ngClass]="{
-                                        'btn-danger': this.showImage,
-                                        'btn-primary': !this.showImage,
+                                        'btn-primary': showImage,
+                                        'btn-danger': !showImage,
                                     }"
                                     (click)="toggleImage()">
-                                    {{showImage?'Ocultar':'Mostrar'}} imágenes
+
+                                    <i class="bi bi-image me-3"></i>
+
+                                    <i [class.d-none]="showImage" class="bi bi-eye"></i>
+                                    <i [class.d-none]="!showImage" class="bi bi-eye-slash"></i> 
                                 </button>
                             </th>
                             <th>Productos</th>

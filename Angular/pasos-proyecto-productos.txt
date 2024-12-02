@@ -383,8 +383,8 @@ export class ProductsPageComponent {
   <th>
       @let buttonText = (showImage()?'Hide':'Show') + ' images';
       <button class="btn btn-sm" [ngClass]="{
-          'btn-danger': this.showImage(),
-          'btn-primary': !this.showImage(),
+          'btn-danger': showImage(),
+          'btn-primary': !showImage(),
       }" (click)="toggleImage()">
       {{ buttonText }}
       </button>
