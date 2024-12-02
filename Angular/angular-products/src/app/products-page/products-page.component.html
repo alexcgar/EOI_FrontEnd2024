@@ -1,27 +1,27 @@
 <div class="card mb-4">
-    <div class="card-header bg-success text-white">Añadir producto</div>
+    <div class="card-header bg-success text-white"><i class="bi bi-bag-plus"></i> Añadir producto</div>
     <div class="card-body">
       <form (ngSubmit)="addProduct(productForm)" #productForm="ngForm">
         <label class="mb-3 row">
-            <span class="col-sm-2 col-form-label text-sm-end">Description</span>
+            <span class="col-sm-2 col-form-label text-sm-end">Descripción</span>
             <div class="col-sm-10">
               <input type="text" class="form-control" name="description" [(ngModel)]="newProduct.description"/>
             </div>
         </label>
         <label class="mb-3 row">
-            <span class="col-sm-2 col-form-label text-sm-end">Price</span>
+            <span class="col-sm-2 col-form-label text-sm-end">Precio</span>
             <div class="col-sm-10">
               <input type="number" class="form-control" name="price" [(ngModel)]="newProduct.price" />
             </div>
         </label>
         <label class="mb-3 row">
-            <span class="col-sm-2 col-form-label text-sm-end">Available</span>
+            <span class="col-sm-2 col-form-label text-sm-end">Disponibilidad</span>
             <div class="col-sm-10">
               <input type="date"  class="form-control"  name="available" [(ngModel)]="newProduct.available"  />
             </div>
         </label>
         <label class="mb-3 row">
-            <span class="col-sm-2 col-form-label text-sm-end"> Image</span>
+            <span class="col-sm-2 col-form-label text-sm-end">Imagen</span>
             <div class="col-sm-10">
               <input type="file" class="form-control" accept="image/*" (change)="changeImage($event)" name="fileName" [(ngModel)]="fileName" />
             </div>
@@ -44,7 +44,7 @@
 
 <div class="card mb-5">
     <div class="card-header bg-primary text-white">
-        Mi lista de productos
+        <i class="bi bi-card-checklist"></i> Mi lista de productos
     </div>
     <div class="card-body">
         @if (products.length) {
@@ -59,8 +59,6 @@
                                         'btn-danger': !showImage,
                                     }"
                                     (click)="toggleImage()">
-
-                                    <i class="bi bi-image me-3"></i>
 
                                     <i [class.d-none]="showImage" class="bi bi-eye"></i>
                                     <i [class.d-none]="!showImage" class="bi bi-eye-slash"></i> 
