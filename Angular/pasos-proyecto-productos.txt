@@ -15,14 +15,22 @@
    En "app.component.html":
    <span>{{ title }} app is running!</span>
 
-4. npm i bootstrap
+4. Instalamos Bootstrap:
+   (Si tenemos iniciado "ng serve", pulsamos Ctrl+C para pararlo)
+   npm i bootstrap
 
 5. En "styles.css":
    @import "bootstrap/dist/css/bootstrap.css";
 
-6. Quitar prefijo de componentes en "angular.json":
+6. Vamos a crear un nuevo componente, pero antes quitaremos el prefijo por defecto de los componentes.
+   Quitamos el prefijo de "angular.json":
       ...
       "prefix": ""
+      ...
+
+   Si hemos instalado ESLint, debemos quitar el prefijo también del fichero ".eslintrc.json":
+      ...
+      prefix: ""
       ...
 
    Crear el componente de la página de productos:
@@ -35,23 +43,23 @@
     </div>
     <div class="card-block">
         <div class="table-responsive">
-        <table class="table table-striped m-0">
-            <thead>
-            <tr>
-                <th>Producto</th>
-                <th>Precio</th>
-                <th>Disponible</th>
-            </tr>
-            </thead>
-            <tbody>
-            <!-- Por ahora vacío. Aquí van los productos -->
-            </tbody>
-        </table>
+          <table class="table table-striped m-0">
+              <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Disponible</th>
+                </tr>
+              </thead>
+              <tbody>
+                    <!-- Por ahora vacío. Aquí van los productos -->
+              </tbody>
+          </table>
         </div>
     </div>
     </div>
 
-8. En "app.component.ts": 
+8. Añadimos el nuevo componente en el import de "app.component.ts": 
     @Component({
         selector: 'app-root',
         standalone: true,
@@ -63,7 +71,7 @@
         title = 'Angular Products';
     }
 
-9. En "app.component.html":
+9. Ya podemos utilizar el nuevo componente "<products-page>" en "app.component.html":
     <div class="container">
         <h1>
             {{title}}
