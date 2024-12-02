@@ -5,3 +5,7 @@ td {
         height: 40px;
     }
 }
+
+.product-img {
+    max-height: 200px;
+}

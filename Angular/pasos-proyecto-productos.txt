@@ -233,7 +233,9 @@
     <td><img [src]="product.imageUrl" [class.d-none]="!showImage" alt=""></td>
 
 
-20. En "products-page.component.html":
+20. Vamos a crear el formulario para añadir productos.
+    Para poder usar "ngModel" y "ngSubmit", debemos importar en el componente el módulo "FormsModule" de "@angular/forms".
+    En "products-page.component.html":
 <div class="card mb-4">
   <div class="card-header bg-success text-white">Add product</div>
   <div class="card-body">
@@ -378,21 +380,27 @@ export class ProductsPageComponent {
 }
 
 24. En "products-page.component.html":
-<th>
-    @let buttonText = (showImage()?'Hide':'Show') + ' images';
-    <button class="btn btn-sm" [ngClass]="{
-        'btn-danger': this.showImage(),
-        'btn-primary': !this.showImage(),
-    }" (click)="toggleImage()">
-    {{ buttonText }}
-    </button>
-</th>
+  <th>
+      @let buttonText = (showImage()?'Hide':'Show') + ' images';
+      <button class="btn btn-sm" [ngClass]="{
+          'btn-danger': this.showImage(),
+          'btn-primary': !this.showImage(),
+      }" (click)="toggleImage()">
+      {{ buttonText }}
+      </button>
+  </th>
 
 25. En "products-page.component.ts":
-export class ProductsPageComponent {
-  //...
-  toggleImage() {
-    this.showImage.set(!this.showImage());
+  export class ProductsPageComponent {
+    //...
+    toggleImage() {
+      this.showImage.set(!this.showImage());
+    }
+    //...
   }
-  //...
-}
+
+26. En "products-page.component.css":
+  ...
+  .product-img {
+      max-height: 200px;
+  }
