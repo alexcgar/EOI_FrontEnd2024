@@ -1,0 +1,11 @@
+td {
+    vertical-align: middle;
+
+    img {
+        height: 40px;
+    }
+}
+
+.product-img {
+    max-height: 200px;
+}
