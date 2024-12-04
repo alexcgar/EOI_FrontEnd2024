@@ -4,6 +4,7 @@ import {
   Component,
   computed,
   inject,
+  OnInit,
   signal,
 } from '@angular/core';
 import { Product } from '../interfaces/product';
@@ -17,15 +18,16 @@ import {
 } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { IntlCurrencyPipe } from '../pipes/intl-currency.pipe';
+import { ProductItemComponent } from '../product-item/product-item.component';
+import { ProductFormComponent } from '../product-form/product-form.component';
 
 @Component({
   selector: 'products-page',
   imports: [
     FormsModule,
-    UpperCasePipe,
-    DatePipe,
     NgClass,
-    IntlCurrencyPipe
+    ProductItemComponent,
+    ProductFormComponent
   ],
   templateUrl: './products-page.component.html',
   styleUrl: './products-page.component.css',
@@ -50,6 +52,14 @@ export class ProductsPageComponent {
       imageUrl: '/motherboard.webp',
       rating: 4,
     },
+    {
+      id: 3,
+      description: 'PC 1TB SSD 16GB RAM',
+      available: '2023-23-04',
+      price: 760,
+      imageUrl: '/pc-ssd.webp',
+      rating: 3,
+    },
   ]);
 
   search = signal('');
@@ -62,41 +72,13 @@ export class ProductsPageComponent {
 
   showImage = signal(true);
 
-  newProduct = {
-    id: 0,
-    description: '',
-    available: '',
-    price: 0,
-    imageUrl: '',
-    rating: 0,
-  };
-
-  fileName = '';
-
-  #changeDetector = inject(ChangeDetectorRef);
-
-  changeImage(event: Event) {
-    const fileInput = event.target as HTMLInputElement;
-    if (!fileInput.files?.length) return;
-    const reader = new FileReader();
-    reader.readAsDataURL(fileInput.files[0]);
-    reader.addEventListener('loadend', () => {
-      this.newProduct.imageUrl = reader.result as string;
-      this.#changeDetector.markForCheck(); // Marca el componente como dirty
-    });
-  }
 
   toggleImage() {
     this.showImage.update((show) => !show);
   }
 
-  addProduct(productForm: NgForm) {
-    this.newProduct.id = Math.max(...this.products().map((p) => p.id!)) + 1;
-    const newProduct = { ...this.newProduct };
-    this.products.update(products => [...products, newProduct]);
-    this.fileName = '';
-    productForm.resetForm();
-    this.newProduct.imageUrl = '';
+  addProduct(product: Product) {
+    this.products.update(products => [...products, product]);
   }
 
   deleteProduct(product: Product) {
