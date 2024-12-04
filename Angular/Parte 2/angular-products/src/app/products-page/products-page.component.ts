@@ -1,32 +1,64 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  computed,
+  inject,
+  signal,
+} from '@angular/core';
 import { Product } from '../interfaces/product';
-import { CommonModule } from '@angular/common';
+import {
+  CommonModule,
+  CurrencyPipe,
+  DatePipe,
+  JsonPipe,
+  NgClass,
+  UpperCasePipe,
+} from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
+import { IntlCurrencyPipe } from '../pipes/intl-currency.pipe';
 
 @Component({
   selector: 'products-page',
-  imports: [CommonModule, FormsModule],
+  imports: [
+    FormsModule,
+    UpperCasePipe,
+    DatePipe,
+    NgClass,
+    IntlCurrencyPipe
+  ],
   templateUrl: './products-page.component.html',
   styleUrl: './products-page.component.css',
 })
 export class ProductsPageComponent {
-  title = "Mi lista de productos";
+  title = 'Mi lista de productos';
 
-  products: Product[] = [{
-    id: 1,
-    description: 'SSD hard drive',
-    available: '2019-10-03',
-    price: 80,
-    imageUrl: '/ssd.webp',
-    rating: 5
-  }, {
-    id: 2,
-    description: 'LGA1212 Motherboard',
-    available: '2020-10-03',
-    price: 98,
-    imageUrl: '/motherboard.webp',
-    rating: 4
-  }];
+  products = signal<Product[]>([
+    {
+      id: 1,
+      description: 'SSD hard drive',
+      available: '2019-10-03',
+      price: 80,
+      imageUrl: '/ssd.webp',
+      rating: 5,
+    },
+    {
+      id: 2,
+      description: 'LGA1212 Motherboard',
+      available: '2020-10-03',
+      price: 98,
+      imageUrl: '/motherboard.webp',
+      rating: 4,
+    },
+  ]);
+
+  search = signal('');
+
+  filteredProducts = computed(() =>
+    this.products().filter((p) =>
+      p.description.toLowerCase().includes(this.search().toLowerCase())
+    )
+  );
 
   showImage = signal(true);
 
@@ -36,7 +68,7 @@ export class ProductsPageComponent {
     available: '',
     price: 0,
     imageUrl: '',
-    rating: 0
+    rating: 0,
   };
 
   fileName = '';
@@ -55,14 +87,19 @@ export class ProductsPageComponent {
   }
 
   toggleImage() {
-    this.showImage.update(show => !show);
+    this.showImage.update((show) => !show);
   }
 
   addProduct(productForm: NgForm) {
-    this.newProduct.id = Math.max(...this.products.map(p => p.id!)) + 1;
-    this.products.push({...this.newProduct});
+    this.newProduct.id = Math.max(...this.products().map((p) => p.id!)) + 1;
+    const newProduct = { ...this.newProduct };
+    this.products.update(products => [...products, newProduct]);
     this.fileName = '';
     productForm.resetForm();
     this.newProduct.imageUrl = '';
+  }
+
+  deleteProduct(product: Product) {
+    this.products.update(products => products.filter((p) => p !== product));
   }
 }

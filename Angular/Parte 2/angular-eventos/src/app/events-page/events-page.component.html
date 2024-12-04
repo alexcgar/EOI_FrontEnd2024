@@ -32,21 +32,42 @@
   </div>
 </form>
 
-<!-- <div>{{newEvento | json}}</div> -->
+<nav class="navbar navbar-light bg-light justify-content-between mt-3">
+  <div class="container-fluid">
+    <ul class="nav">
+      <li class="nav-item">
+        <button class="nav-link" (click)="orderDate()">Order by date</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" (click)="orderPrice()">Order by price</button>
+      </li>
+    </ul>
+    <form class="d-flex mb-0">
+      <input
+        class="form-control me-2"
+        type="text"
+        name="search"
+        placeholder="Search"
+        aria-label="Search"
+        [(ngModel)]="search"
+      />
+    </form>
+  </div>
+</nav>
 
 <div class="mb-4 mt-4 row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
-  @for (evento of eventos; track evento.id) {
+  @for (evento of filteredEvents(); track evento.id) {
     <div class="col">
       <div class="card shadow">
         <img [src]="evento.image" class="card-img-top" alt="...">
         <div class="card-body">
-          <h4 class="card-title">{{evento.title}}</h4>
+          <h4 class="card-title">{{evento.title | titlecase}}</h4>
           <p class="card-text">{{evento.description}}</p>
-          <div><button class="btn btn-sm btn-danger" (click)="deleteEvento($index)">Borrar</button></div>
+          <div><button class="btn btn-sm btn-danger" (click)="deleteEvento(evento)">Borrar</button></div>
         </div>
         <div class="card-footer text-muted row m-0">
-          <div class="col">{{evento.date}}</div>
-          <div class="col text-end">{{evento.price}} €</div>
+          <div class="col">{{evento.date | date:'dd/MM/yyyy'}}</div>
+          <div class="col text-end">{{evento.price | intlCurrency:'EUR':'es-ES'}}</div>
         </div>
       </div>
     </div>

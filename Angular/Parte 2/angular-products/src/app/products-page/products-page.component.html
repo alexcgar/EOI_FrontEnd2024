@@ -71,7 +71,16 @@
     <i class="bi bi-card-checklist"></i> Mi lista de productos
   </div>
   <div class="card-body">
-    @if (products.length) {
+    <div class="row">
+      <div class="col-sm-6">
+        <input type="text" [(ngModel)]="search" class="form-control" placeholder="Filter..." />
+      </div>
+      <div class="col-form-label col-sm-6">
+        Filtered by: {{ search() }}
+      </div>
+    </div>
+
+    @if (filteredProducts().length) {
     <div class="table-responsive">
       <table class="table table-striped m-0">
         <thead>
@@ -92,21 +101,24 @@
             <th>Productos</th>
             <th>Precio</th>
             <th>Disponibles</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          @for (product of products; track product.id) {
+          @for (product of filteredProducts(); track product.id) {
           <tr>
             <td>
               <img
                 [class.d-none]="!showImage()"
                 [src]="product.imageUrl"
                 alt=""
+                [title]="product.description | uppercase"
               />
             </td>
             <td>{{ product.description }}</td>
-            <td>{{ product.price }}</td>
-            <td>{{ product.available }}</td>
+            <td>{{ product.price | intlCurrency:'EUR':'es-ES' }}</td>
+            <td>{{ product.available | date:'dd/MM/yyyy' }}</td>
+            <td><button (click)="deleteProduct(product)" class="btn btn-danger btn-sm fw-bold">X</button></td>
           </tr>
           }
         </tbody>
