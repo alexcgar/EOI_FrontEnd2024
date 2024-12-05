@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "32b5d1b9-e060-40c7-a89d-3d74d7304757",
+		"_postman_id": "2c4ee313-3cfe-4e06-a7fd-ae1ec51a4645",
 		"name": "EOI Front 2024",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "682596"
@@ -15,11 +15,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{server_lite}}/events",
+							"raw": "https://api.fullstackpro.es/svtickets-lite/events",
+							"protocol": "https",
 							"host": [
-								"{{server_lite}}"
+								"api",
+								"fullstackpro",
+								"es"
 							],
 							"path": [
+								"svtickets-lite",
 								"events"
 							]
 						}
@@ -41,11 +45,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{server_lite}}/events",
+							"raw": "https://api.fullstackpro.es/svtickets-lite/events",
+							"protocol": "https",
 							"host": [
-								"{{server_lite}}"
+								"api",
+								"fullstackpro",
+								"es"
 							],
 							"path": [
+								"svtickets-lite",
 								"events"
 							]
 						}
@@ -58,13 +66,17 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{server_lite}}/events/9",
+							"raw": "https://api.fullstackpro.es/svtickets-lite/events/692",
+							"protocol": "https",
 							"host": [
-								"{{server_lite}}"
+								"api",
+								"fullstackpro",
+								"es"
 							],
 							"path": [
+								"svtickets-lite",
 								"events",
-								"9"
+								"692"
 							]
 						}
 					},
