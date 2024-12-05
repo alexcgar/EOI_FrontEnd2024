@@ -1,0 +1,6 @@
+.card-img-top {
+  cursor: pointer;
+  object-fit: cover;
+  object-position: center center;
+  aspect-ratio: 16 / 10;
+}

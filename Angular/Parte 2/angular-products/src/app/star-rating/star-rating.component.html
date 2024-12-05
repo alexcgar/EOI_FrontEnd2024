@@ -1,0 +1,10 @@
+<div (mouseleave)="auxRating.set(rating())" class="star-container">
+  @for (star of [1,2,3,4,5]; track $index) {
+  <i
+    class="bi"
+    [ngClass]="star <= auxRating() ? 'bi-star-fill' : 'bi-star'"
+    (mouseenter)="auxRating.set(star)"
+    (click)="rating.set(star)"
+  ></i>
+  }
+</div>

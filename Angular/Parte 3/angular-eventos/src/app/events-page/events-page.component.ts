@@ -1,8 +1,9 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { EventCardComponent } from '../event-card/event-card.component';
 import { EventFormComponent } from '../event-form/event-form.component';
 import { Evento } from '../interfaces/evento';
+import { EventsService } from '../services/events.service';
 
 @Component({
   selector: 'events-page',
@@ -11,32 +12,7 @@ import { Evento } from '../interfaces/evento';
   styleUrl: './events-page.component.css',
 })
 export class EventsPageComponent {
-  eventos = signal<Evento[]>([
-    {
-      id: 1,
-      title: 'Evento de prueba 1',
-      description: 'Un evento para probar',
-      date: '2024-12-12',
-      image: '/evento1.jpg',
-      price: 50,
-    },
-    {
-      id: 2,
-      title: 'Evento de prueba 2',
-      description: 'Otro evento',
-      date: '2025-02-01',
-      image: '/evento2.jpg',
-      price: 22.5,
-    },
-    {
-      id: 3,
-      title: 'Evento de prueba 3',
-      description: 'Y otro más',
-      date: '2025-03-15',
-      image: '/evento3.jpg',
-      price: 99.95,
-    },
-  ]);
+  eventos = signal<Evento[]>([]);
 
   search = signal('');
 
@@ -48,6 +24,12 @@ export class EventsPageComponent {
         e.description.toLowerCase().includes(searchLower)
     );
   });
+
+  eventsService = inject(EventsService);
+
+  constructor() {
+    this.eventos.set(this.eventsService.getEvents());
+  }
 
   addEvento(evento: Evento) {
     this.eventos.update(eventos => [...eventos, evento]);
