@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, linkedSignal, model } from '@angular/core';
+import { Component, input, linkedSignal, model, output } from '@angular/core';
 
 @Component({
   selector: 'star-rating',

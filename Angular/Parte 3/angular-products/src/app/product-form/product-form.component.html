@@ -60,7 +60,9 @@
       }
       <div class="mb-3 row">
         <div class="offset-sm-2 col-sm-10">
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="sending()">
+            {{sending() ? 'Enviando...' : 'Enviar'}}
+          </button>
         </div>
       </div>
     </form>

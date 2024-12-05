@@ -21,15 +21,13 @@ import { IntlCurrencyPipe } from '../pipes/intl-currency.pipe';
 import { ProductItemComponent } from '../product-item/product-item.component';
 import { ProductFormComponent } from '../product-form/product-form.component';
 import { ProductsService } from '../services/products.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Subscription } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'products-page',
-  imports: [
-    FormsModule,
-    NgClass,
-    ProductItemComponent,
-    ProductFormComponent
-  ],
+  imports: [FormsModule, NgClass, ProductItemComponent, ProductFormComponent],
   templateUrl: './products-page.component.html',
   styleUrl: './products-page.component.css',
 })
@@ -50,7 +48,13 @@ export class ProductsPageComponent {
   showImage = signal(true);
 
   constructor() {
-    this.products.set(this.productsService.getProducts());
+    this.productsService
+      .getProducts()
+      .pipe(takeUntilDestroyed())
+      .subscribe({
+        next: (products) => this.products.set(products),
+        error: (error: HttpErrorResponse) => console.error(`Error obteniendo productos: `, error),
+      });
   }
 
   toggleImage() {
@@ -58,10 +62,10 @@ export class ProductsPageComponent {
   }
 
   addProduct(product: Product) {
-    this.products.update(products => [...products, product]);
+    this.products.update((products) => [...products, product]);
   }
 
   deleteProduct(product: Product) {
-    this.products.update(products => products.filter((p) => p !== product));
+    this.products.update((products) => products.filter((p) => p !== product));
   }
 }

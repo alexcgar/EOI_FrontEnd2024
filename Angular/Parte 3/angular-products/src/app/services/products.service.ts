@@ -1,36 +1,33 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Product } from '../interfaces/product';
+import { HttpClient } from '@angular/common/http';
+import { ProductsResponse, SingleProductResponse } from '../interfaces/responses';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  getProducts(): Product[] {
-    return [
-      {
-        id: 1,
-        description: 'SSD hard drive',
-        available: '2019-10-03',
-        price: 80,
-        imageUrl: '/ssd.webp',
-        rating: 5,
-      },
-      {
-        id: 2,
-        description: 'LGA1212 Motherboard',
-        available: '2020-10-03',
-        price: 98,
-        imageUrl: '/motherboard.webp',
-        rating: 4,
-      },
-      {
-        id: 3,
-        description: 'PC 1TB SSD 16GB RAM',
-        available: '2023-23-04',
-        price: 760,
-        imageUrl: '/pc-ssd.webp',
-        rating: 3,
-      },
-    ];
+  http = inject(HttpClient);
+  productsUrl = 'https://api.fullstackpro.es/products-example/products';
+
+  getProducts() {
+    return this.http.get<ProductsResponse>(this.productsUrl).pipe(
+      map(resp => resp.products)
+    );
+  }
+
+  addProduct(product: Product) {
+    return this.http.post<SingleProductResponse>(this.productsUrl, product).pipe(
+      map(resp => resp.product)
+    );
+  }
+
+  deleteProduct(id: number) {
+    return this.http.delete<void>(`${this.productsUrl}/${id}`);
+  }
+
+  changeRating(id: number, rating: number) {
+    return this.http.put<void>(`${this.productsUrl}/${id}/rating`, {rating});
   }
 }
