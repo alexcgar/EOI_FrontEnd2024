@@ -1,2 +1,5 @@
 <h1>Películas populares</h1>
-<p>{{ peliculas()[0].title }}</p>
+@for (pelicula of peliculas(); track pelicula.id) {
+    <p>{{ pelicula.title }}</p>
+    <p><img src="https://image.tmdb.org/t/p/w200/{{pelicula.poster_path}}"></p>
+}

@@ -7,7 +7,7 @@ import { map } from 'rxjs';
 })
 export class PeliculasService {
   http = inject(HttpClient);
-  peliculasUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=4b48db10576542e32758261ba7bbc4fb&language=es&page=1';
+  peliculasUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=...&language=es&page=1';
 
   constructor() { }
 
