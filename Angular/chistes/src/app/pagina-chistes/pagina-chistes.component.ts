@@ -11,15 +11,18 @@ import { ChistesService } from '../services/chistes.service';
 })
 export class PaginaChistesComponent {
   chistesService = inject(ChistesService);
-  chiste = signal<any>("");
+  chiste = signal<string|undefined>("Cargando chiste...");
 
   constructor() {
+    this.obtenerChiste();
+  }
+
+  obtenerChiste() {
     this.chistesService
-      .getChistes()
-      .pipe(takeUntilDestroyed())
-      .subscribe({
-        next: (chiste) => this.chiste.set(chiste),
-        error: (error: HttpErrorResponse) => console.error(`Error obteniendo chiste: `, error),
-      });
+    .getChistes()
+    .subscribe({
+      next: (chiste) => this.chiste.set(chiste),
+      error: (error: HttpErrorResponse) => console.error(`Error obteniendo chiste: `, error),
+    });
   }
 }
