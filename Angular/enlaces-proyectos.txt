@@ -5,3 +5,30 @@ Memory game:
 Plantilla Phaser + Angular:
 - https://phaser.io/news/2024/03/phaser-3-and-angular-template
 - https://github.com/phaserjs/template-angular/tree/main
+
+API's gratuitas:
+https://newsapi.org/
+https://openweathermap.org/
+https://developers.giphy.com/
+https://rawg.io/apidocs
+https://api-docs.igdb.com/#getting-started
+https://api.hypixel.net/
+https://developer.spotify.com/documentation/web-api
+https://www.football-data.org/
+https://jokeapi.dev/
+https://pokeapi.co/
+https://opentdb.com/
+https://restcountries.com/
+https://thedogapi.com/
+https://aztro.sameerkumar.website/
+https://api.chucknorris.io/
+https://www.themoviedb.org/
+https://api.adviceslip.com/
+https://api.funtranslations.com/
+https://api.nasa.gov/
+https://www.meaningcloud.com/developer/apis/
+https://www.superheroapi.com/
+https://deckofcardsapi.com/
+https://uselessfacts.jsph.pl/
+https://fakestoreapi.com/
+https://jsonplaceholder.typicode.com/
