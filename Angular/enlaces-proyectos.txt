@@ -8,9 +8,12 @@ Plantilla Phaser + Angular:
 
 API's gratuitas:
 https://jokeapi.dev/
+https://www.themoviedb.org/
+https://perenual.com/docs/api
 https://openweathermap.org/
 https://pokeapi.co/
 https://lmstudio.ai/
+https://fakestoreapi.com/
 https://restcountries.com/
 https://newsapi.org/
 https://developers.giphy.com/
@@ -29,7 +32,6 @@ https://api.nasa.gov/
 https://www.meaningcloud.com/developer/apis/
 https://www.superheroapi.com/
 https://deckofcardsapi.com/
-https://fakestoreapi.com/
 https://jsonplaceholder.typicode.com/
 https://api.hypixel.net/
 https://uselessfacts.jsph.pl/
