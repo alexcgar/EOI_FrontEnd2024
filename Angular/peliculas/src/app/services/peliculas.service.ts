@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { map } from 'rxjs';
+import { PeliculasResponse } from '../interfaces/pelicula';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class PeliculasService {
   constructor() { }
 
   getPeliculas() {
-    return this.http.get<any>(this.peliculasUrl).pipe(
+    return this.http.get<PeliculasResponse>(this.peliculasUrl).pipe(
       map(resp => {
           return resp.results; // Listado de películas
       })

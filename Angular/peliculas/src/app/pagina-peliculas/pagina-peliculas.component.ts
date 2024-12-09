@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { PeliculasService } from '../services/peliculas.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Pelicula } from '../interfaces/pelicula';
 
 @Component({
   selector: 'pagina-peliculas',
@@ -10,13 +11,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class PaginaPeliculasComponent {
   peliculasService = inject(PeliculasService);
-  peliculas = signal<any>([]);
+  peliculas = signal<Pelicula[]>([]);
 
   constructor() {
-    this.obtenerChiste();
+    this.obtenerPeliculas();
   }
 
-  obtenerChiste() {
+  obtenerPeliculas() {
     this.peliculasService
     .getPeliculas()
     .subscribe({
