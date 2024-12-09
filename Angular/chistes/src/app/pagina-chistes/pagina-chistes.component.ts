@@ -11,7 +11,7 @@ import { ChistesService } from '../services/chistes.service';
 })
 export class PaginaChistesComponent {
   chistesService = inject(ChistesService);
-  chiste = signal<string|undefined>("Cargando chiste...");
+  chiste = signal<string|undefined>("");
 
   constructor() {
     this.obtenerChiste();

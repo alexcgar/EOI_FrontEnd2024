@@ -8,7 +8,7 @@ import { Chiste } from '../interfaces/chiste';
 })
 export class ChistesService {
   http = inject(HttpClient);
-  chistesUrl = 'https://v2.jokeapi.dev/joke/Programming?lang=es';
+  chistesUrl = 'https://v2.jokeapi.dev/joke/Any?lang=es';
 
   constructor() { }
 

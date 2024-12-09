@@ -5,5 +5,5 @@ export interface Chiste {
     delivery?: string;          // Remate del chiste (si type es 'twopart')
     category: string;           // Categoría del chiste
     lang: string;               // Idioma del chiste
-  }
+}
   
