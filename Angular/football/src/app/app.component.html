@@ -1,0 +1,21 @@
+<div class="container">
+  <ul class="list-group mt-4">
+    @for (competicion of competiciones; track competicion.id) {
+    <li class="list-group-item" (click)="getPartidos(competicion.id)">
+      <img [src]="competicion.emblem" class="emblem" alt="" />
+      {{ competicion.name }}
+    </li>
+    }
+  </ul>
+
+  <ul class="list-group mt-4">
+    @for (partido of partidos; track partido.id) {
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col"><img [src]="partido.homeTeam.crest" class="emblem" alt="" /> {{ partido.homeTeam.name }}</div>
+        <div class="col"><img [src]="partido.awayTeam.crest" class="emblem" alt="" /> {{ partido.awayTeam.name }}</div>
+      </div>
+    </li>
+    }
+  </ul>
+</div>
