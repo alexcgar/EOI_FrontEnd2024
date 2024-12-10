@@ -35,3 +35,22 @@ https://deckofcardsapi.com/
 https://jsonplaceholder.typicode.com/
 https://api.hypixel.net/
 https://uselessfacts.jsph.pl/
+
+Más APIS Gratis: https://github.com/public-apis/public-apis
+- Monedas y tipos de cambio: https://fixer.io/?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers
+- Información de usuario a partir de la IP - https://ipstack.com/?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers
+- API del tiempo: https://weatherstack.com/?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers
+- Cotiación de acciones: https://marketstack.com/?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo-Best-sellers
+
+Más APIS: https://rapidapi.com/collection/list-of-free-apis
+
+Base de datos enorme con muchas APIS públicas: https://publicapis.dev/
+
+Más colecciones de APIs: https://apilist.fun/
+
+https://www.freepublicapis.com/
+
+Positibilidad de hacer POST, PUT, DELETE?
+- https://beeceptor.com/crud-api/
+- https://restful-api.dev/
+- https://github.com/zowe/sample-node-api
