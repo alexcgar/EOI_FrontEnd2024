@@ -1,0 +1,25 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  @if(question) {
+  <div class="card" style="width: 24rem">
+    <div class="card-body">
+      <h5 class="card-title" [innerHtml]="question.question"></h5>
+      <ul class="list-group">
+        @for(option of options; track $index) {
+        <li
+          class="list-group-item"
+          [innerHtml]="option.text"
+          (click)="select($index)"
+          [ngClass]="{
+            'correct': selected === $index && option.correct,
+            'incorrect': selected === $index && !option.correct,
+          }"
+        ></li>
+        }
+      </ul>
+      <p class="button btn btn-primary mt-4" (click)="siguiente()">Siguiente</p>
+    </div>
+  </div>
+  }
+</div>
+
+

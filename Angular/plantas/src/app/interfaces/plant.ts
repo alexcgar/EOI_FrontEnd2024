@@ -4,7 +4,8 @@ export interface Plant {
   scientific_name: string[];
   cycle: string;
   watering: string;
-  default_image: {
+  sunlight: string[];
+  default_image?: {
     medium_url: string;
     thumbnail: string;
   }

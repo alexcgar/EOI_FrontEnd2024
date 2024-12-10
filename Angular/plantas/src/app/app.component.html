@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 mb-4">
+    @for (plant of plants; track plant.id) {
+    <div class="col">
+      <div class="card h-100">
+        <img
+          [src]="plant.default_image?.medium_url ?? '/default.png'"
+          [style]="{opacity: plant.default_image ? 1 : 0.5 }"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{plant.common_name}}</h5>
+          <p class="card-text text-muted">
+            {{plant.scientific_name[0]}}
+          </p>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+
+  <div class="mb-4">
+    <button class="btn btn-primary" (click)="cargarMas()">Cargar más</button>
+  </div>
+</div>

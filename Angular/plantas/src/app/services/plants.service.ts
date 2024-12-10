@@ -9,9 +9,9 @@ export class PlantsService {
   urlBase = 'https://perenual.com/api';
   http = inject(HttpClient);
 
-  getSpecies() {
+  getSpecies(page: number) {
     return this.http.get<PlantsResponse>(`${this.urlBase}/species-list`, {
-      params: { key: 'sk-WrGN67588158f3b4b7957' },
+      params: { key: 'sk-WrGN67588158f3b4b7957', page },
     });
   }
 }
