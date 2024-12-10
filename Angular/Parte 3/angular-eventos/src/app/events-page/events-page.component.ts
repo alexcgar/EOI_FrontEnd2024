@@ -28,7 +28,7 @@ export class EventsPageComponent {
   eventsService = inject(EventsService);
 
   constructor() {
-    this.eventos.set(this.eventsService.getEvents());
+    this.eventsService.getEvents().subscribe(resp => this.eventos.set(resp.events));
   }
 
   addEvento(evento: Evento) {

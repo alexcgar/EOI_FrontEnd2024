@@ -1,7 +1,8 @@
-import { Component, output } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Evento } from '../interfaces/evento';
 import { EncodeBase64Directive } from '../directives/encode-base64.directive';
+import { EventsService } from '../services/events.service';
 
 @Component({
   selector: 'event-form',
@@ -13,7 +14,6 @@ export class EventFormComponent {
   add = output<Evento>();
 
   newEvento: Evento = {
-    id: 4,
     title: '',
     description: '',
     date: '',
@@ -21,11 +21,13 @@ export class EventFormComponent {
     price: 0,
   };
 
+  eventsService = inject(EventsService);
+
   addEvento(formEvent: NgForm) {
-    const newEvento = {...this.newEvento};
-    this.add.emit(newEvento);
-    formEvent.resetForm();
-    this.newEvento.image = '';
-    this.newEvento.id!++;
+    this.eventsService.addEvent(this.newEvento).subscribe(resp => {
+      this.add.emit(resp.event);
+      formEvent.resetForm();
+      this.newEvento.image = '';
+    });
   }
 }
