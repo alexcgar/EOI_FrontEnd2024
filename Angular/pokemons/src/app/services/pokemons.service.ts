@@ -14,7 +14,15 @@ export class PokemonsService {
   getPokemons() {
     return this.http.get<any>(this.pokemonsUrl).pipe(
       map(resp => {
-          return resp.results; // Listado de películas
+          return resp.results; // Listado de pokemons
+      })
+    );
+  }
+
+  getDetallesPokemon(url:string) {
+    return this.http.get<any>(url).pipe(
+      map(resp => {
+          return resp; // Detalles de pokemon
       })
     );
   }
