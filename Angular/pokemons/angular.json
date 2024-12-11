@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "peliculas": {
+    "pokemons": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:class": {
@@ -38,10 +38,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/peliculas",
+            "outputPath": "dist/pokemons",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
+              "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -53,9 +54,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -85,10 +84,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "peliculas:build:production"
+              "buildTarget": "pokemons:build:production"
             },
             "development": {
-              "buildTarget": "peliculas:build:development"
+              "buildTarget": "pokemons:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -113,9 +112,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
-            ]
+            "scripts": []
           }
         }
       }
