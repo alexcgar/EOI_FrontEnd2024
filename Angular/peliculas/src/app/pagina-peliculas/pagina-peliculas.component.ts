@@ -2,10 +2,11 @@ import { Component, inject, signal } from '@angular/core';
 import { PeliculasService } from '../services/peliculas.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Pelicula } from '../interfaces/pelicula';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'pagina-peliculas',
-  imports: [],
+  imports: [ CommonModule ],
   templateUrl: './pagina-peliculas.component.html',
   styleUrl: './pagina-peliculas.component.css'
 })
