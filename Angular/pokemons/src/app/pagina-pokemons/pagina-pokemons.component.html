@@ -1,11 +1,26 @@
+<h1>Pokémons</h1>
+
 <div class="border border-danger rounded text-center my-2">
     <img [src]="pokemon().sprites.front_default">
     <img [src]="pokemon().sprites.back_default">
+    <div class="mb-2">
+        @for (type of pokemon().types; track type.slot) { 
+            <span class="badge me-1" [ngClass]="tiposPokemons[type.type.name].color">
+                <i class="{{tiposPokemons[type.type.name].icon}} me-1"></i>
+                {{ type.type.name }}
+            </span>
+        }
+    </div>
+    <h2 class="text-capitalize">{{pokemon().name}}</h2>
 </div>
 <audio [src]="pokemon().cries.latest" controls></audio>
 
 <ul class="list-group my-2">
     @for (pokemon of pokemons(); track pokemon.url) { 
-        <li class="list-group-item list-group-item-primary" (click)="obtenerDetallesPokemon(pokemon.url)">{{pokemon.name}}</li>
+        <li class="list-group-item list-group-item-primary list-group-item-action text-capitalize cursor-pointer" 
+            role="button"
+            (click)="obtenerDetallesPokemon(pokemon.url)">
+            {{pokemon.name}}
+        </li>
     }
 </ul>
