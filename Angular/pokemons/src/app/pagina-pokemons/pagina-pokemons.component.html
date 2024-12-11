@@ -1,10 +1,10 @@
-<div class="border border-danger text-center my-2">
+<div class="border border-danger rounded text-center my-2">
     <img [src]="pokemon().sprites.front_default">
     <img [src]="pokemon().sprites.back_default">
 </div>
 <audio [src]="pokemon().cries.latest" controls></audio>
 
-<ul class="list-group my-3">
+<ul class="list-group my-2">
     @for (pokemon of pokemons(); track pokemon.url) { 
         <li class="list-group-item list-group-item-primary" (click)="obtenerDetallesPokemon(pokemon.url)">{{pokemon.name}}</li>
     }
