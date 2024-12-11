@@ -12,7 +12,14 @@ import { Pokemon } from '../interfaces/pokemon';
 export class PaginaPokemonsComponent {
   pokemonsService = inject(PokemonsService);
   pokemons = signal<any[]>([]);
-  pokemon = signal<Pokemon>({sprites:{front_default:""}});
+  pokemon = signal<Pokemon>({
+                cries: {
+                  latest:""
+                },
+                sprites: {
+                  front_default:""
+                }
+              });
 
   constructor() {
     this.obtenerPokemons();
@@ -28,9 +35,6 @@ export class PaginaPokemonsComponent {
   }
 
   obtenerDetallesPokemon(url:string) {
-
-console.log(url);    
-
     this.pokemonsService
     .getDetallesPokemon(url)
     .subscribe({

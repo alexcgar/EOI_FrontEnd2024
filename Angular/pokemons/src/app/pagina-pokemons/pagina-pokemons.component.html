@@ -1,4 +1,8 @@
-<!--<img [src]="pokemon().sprites.front_default">-->
+<div class="border border-danger text-center my-2">
+    <img [src]="pokemon().sprites.front_default">
+    <img [src]="pokemon().sprites.back_default">
+</div>
+<audio [src]="pokemon().cries.latest" controls></audio>
 
 <ul class="list-group my-3">
     @for (pokemon of pokemons(); track pokemon.url) { 
