@@ -15,24 +15,25 @@ export class PaginaPokemonsComponent {
   viewportScroller = inject(ViewportScroller);
   pokemonsService = inject(PokemonsService);
   pokemons = signal<Pokemon[]>([]);
+  pokemonActual = 0;
   pokemon = signal<PokemonDetails>({
-                name: "Bulbasaur",
-                cries: {
-                  latest:"https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/1.ogg"
-                },
-                sprites: {
-                  front_default:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-                  back_default:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png"
-                },
-                types: [
-                  {
-                    slot: 1,
-                    type: {
-                      name: "grass"
-                    }
-                  }
-                ]
-              });
+    name: "Bulbasaur",
+    cries: {
+      latest:"https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/1.ogg"
+    },
+    sprites: {
+      front_default:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      back_default:"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png"
+    },
+    types: [
+      {
+        slot: 1,
+        type: {
+          name: "grass"
+        }
+      }
+    ]
+  });
 
   tiposPokemons: { [key: string]: { color: string; icon: string } } = {
     normal:   { color: 'text-bg-light',     icon: 'bi-circle-fill' },
@@ -79,5 +80,24 @@ export class PaginaPokemonsComponent {
       },
       error: (error: HttpErrorResponse) => console.error(`Error obteniendo pokemon: `, error),
     });
+  }
+
+  seleccionar(seleccionado: number) {
+    this.pokemonActual = seleccionado;
+    this.obtenerDetallesPokemon(this.pokemons()[this.pokemonActual].url);
+  }
+
+  obtenerSiguiente() {
+    if (this.pokemonActual < 1000) {
+      this.pokemonActual++;
+      this.obtenerDetallesPokemon(this.pokemons()[this.pokemonActual].url);
+    }
+  }
+
+  obtenerAnterior() {
+    if (this.pokemonActual > 0) {
+      this.pokemonActual--;
+      this.obtenerDetallesPokemon(this.pokemons()[this.pokemonActual].url);
+    }
   }
 }

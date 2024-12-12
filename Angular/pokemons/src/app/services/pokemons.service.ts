@@ -7,12 +7,13 @@ import { map } from 'rxjs';
 })
 export class PokemonsService {
   http = inject(HttpClient);
-  pokemonsUrl = 'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0';
+  pokemonsUrl = 'https://pokeapi.co/api/v2/pokemon?limit=100&offset=';
+  offset = 0;
 
   constructor() { }
 
   getPokemons() {
-    return this.http.get<any>(this.pokemonsUrl).pipe(
+    return this.http.get<any>(`${this.pokemonsUrl}${this.offset}`).pipe(
       map(resp => {
           return resp.results; // Listado de pokemons
       })

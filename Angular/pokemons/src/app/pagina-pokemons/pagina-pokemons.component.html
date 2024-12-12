@@ -1,9 +1,9 @@
 <h1>Pokémons</h1>
 
-<div class="border border-danger rounded text-center my-2">
+<div class="border border-danger rounded my-2">
     <img [src]="pokemon().sprites.front_default">
     <img [src]="pokemon().sprites.back_default">
-    <div class="mb-2">
+    <div class="mb-3">
         @for (type of pokemon().types; track type.slot) { 
             <span class="badge me-1" [ngClass]="tiposPokemons[type.type.name].color">
                 <i class="{{tiposPokemons[type.type.name].icon}} me-1"></i>
@@ -11,16 +11,21 @@
             </span>
         }
     </div>
-    <h2 class="text-capitalize">{{pokemon().name}}</h2>
+    <audio [src]="pokemon().cries.latest" controls></audio>
+    <div class="h2">
+        <button class="btn btn-warning mx-2" (click)="obtenerAnterior()"><i class="bi bi-arrow-left mx-2"></i></button>
+        {{pokemon().name}}
+        <button class="btn btn-warning mx-2" (click)="obtenerSiguiente()"><i class="bi bi-arrow-right mx-2"></i></button>
+    </div>
 </div>
-<audio [src]="pokemon().cries.latest" controls></audio>
 
-<ul class="list-group my-2">
-    @for (pokemon of pokemons(); track pokemon.url) { 
-        <li class="list-group-item list-group-item-primary list-group-item-action text-capitalize cursor-pointer" 
+<div class="my-2">
+    @for (pokemon of pokemons(); track pokemon.url; let i = $index) { 
+        <button class="btn btn-primary text-capitalize m-1" 
             role="button"
-            (click)="obtenerDetallesPokemon(pokemon.url)">
+            [class.btn-danger]="i === pokemonActual"
+            (click)="seleccionar(i)">
             {{pokemon.name}}
-        </li>
+        </button>
     }
-</ul>
+</div>
