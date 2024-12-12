@@ -1,0 +1,10 @@
+<div class="mt-4">
+  @if(evento()) {
+    <event-card [evento]="evento()!" (delete)="goBack()"></event-card>
+  } @else {
+    <p>Cargando evento...</p>
+  }
+</div>
+<div class="mt-3 mb-4">
+  <a class="btn btn-success" [routerLink]="['/events']">Volver</a>
+</div>

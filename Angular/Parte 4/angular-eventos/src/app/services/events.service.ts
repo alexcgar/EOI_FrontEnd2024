@@ -15,6 +15,10 @@ export class EventsService {
     return this.http.get<EventosResponse>(this.urlEventos);
   }
 
+  getEvent(id: number) {
+    return this.http.get<SingleEventoResponse>(`${this.urlEventos}/${id}`);
+  }
+
   addEvent(evento: Evento) {
     return this.http.post<SingleEventoResponse>(this.urlEventos, evento);
   }

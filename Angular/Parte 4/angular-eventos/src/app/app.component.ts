@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { EventsPageComponent } from './events-page/events-page.component';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [EventsPageComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

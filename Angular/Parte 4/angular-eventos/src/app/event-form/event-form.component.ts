@@ -1,7 +1,8 @@
-import { Component, inject, output } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
-import { Evento } from '../interfaces/evento';
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { EncodeBase64Directive } from '../directives/encode-base64.directive';
+import { Evento } from '../interfaces/evento';
 import { EventsService } from '../services/events.service';
 
 @Component({
@@ -11,8 +12,6 @@ import { EventsService } from '../services/events.service';
   styleUrl: './event-form.component.css'
 })
 export class EventFormComponent {
-  add = output<Evento>();
-
   newEvento: Evento = {
     title: '',
     description: '',
@@ -22,12 +21,11 @@ export class EventFormComponent {
   };
 
   eventsService = inject(EventsService);
+  router = inject(Router);
 
-  addEvento(formEvent: NgForm) {
-    this.eventsService.addEvent(this.newEvento).subscribe(resp => {
-      this.add.emit(resp.event);
-      formEvent.resetForm();
-      this.newEvento.image = '';
+  addEvento() {
+    this.eventsService.addEvent(this.newEvento).subscribe(() => {
+      this.router.navigate(['/events']);
     });
   }
 }

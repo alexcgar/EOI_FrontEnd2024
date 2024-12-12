@@ -1,12 +1,24 @@
-<div class="card shadow">
-  <img [src]="evento().image" class="card-img-top" alt="...">
+<div class="card h-100 shadow">
+  <a [routerLink]="['/events', evento().id]">
+    <img [src]="evento().image" class="card-img-top" alt="..." />
+  </a>
   <div class="card-body">
-    <h4 class="card-title">{{evento().title | titlecase}}</h4>
-    <p class="card-text">{{evento().description}}</p>
-    <div><button class="btn btn-sm btn-danger" (click)="deleteEvento()">Borrar</button></div>
+    <h4 class="card-title">
+      <a [routerLink]="['/events', evento().id]">
+        {{ evento().title | titlecase }}
+      </a>
+    </h4>
+    <p class="card-text">{{ evento().description }}</p>
+    <div>
+      <button class="btn btn-sm btn-danger" (click)="deleteEvento()">
+        Borrar
+      </button>
+    </div>
   </div>
   <div class="card-footer text-muted row m-0">
-    <div class="col">{{evento().date | date:'dd/MM/yyyy'}}</div>
-    <div class="col text-end">{{evento().price | intlCurrency:'EUR':'es-ES'}}</div>
+    <div class="col">{{ evento().date | date : "dd/MM/yyyy" }}</div>
+    <div class="col text-end">
+      {{ evento().price | intlCurrency : "EUR" : "es-ES" }}
+    </div>
   </div>
 </div>

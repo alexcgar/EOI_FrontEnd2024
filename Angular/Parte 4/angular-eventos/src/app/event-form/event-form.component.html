@@ -1,4 +1,4 @@
-<form class="mt-4" #formEvent="ngForm" (ngSubmit)="addEvento(formEvent)">
+<form class="mt-4" #formEvent="ngForm" (ngSubmit)="addEvento()">
   <div class="mb-3">
     <label for="title" class="form-label">Title</label>
     <input type="text" class="form-control" name="title" id="title" placeholder="Enter title" [(ngModel)]="newEvento.title">
