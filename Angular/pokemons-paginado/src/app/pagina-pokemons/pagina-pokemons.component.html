@@ -1,0 +1,15 @@
+<h1>Pokémons</h1>
+
+<div class="my-2">
+  @for (pokemon of pokemons(); track pokemon.url; let i = $index) {
+  <a
+    class="btn btn-primary text-capitalize m-1"
+    role="button"
+    [class.btn-danger]="i === pokemonActual"
+    [routerLink]="['/pokemons', 'detalle']"
+    [queryParams]="{ url: pokemon.url }"
+  >
+    {{ pokemon.name }}
+  </a>
+  }
+</div>

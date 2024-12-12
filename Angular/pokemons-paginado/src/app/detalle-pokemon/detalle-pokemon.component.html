@@ -1,0 +1,22 @@
+@if(pokemon()) {
+<div class="border border-danger rounded my-2">
+  <img [src]="pokemon()!.sprites.front_default">
+  <img [src]="pokemon()!.sprites.back_default">
+  <div class="mb-3">
+      @for (type of pokemon()!.types; track type.slot) {
+          <span class="badge me-1" [ngClass]="tiposPokemons[type.type.name].color">
+              <i class="{{tiposPokemons[type.type.name].icon}} me-1"></i>
+              {{ type.type.name }}
+          </span>
+      }
+  </div>
+  <audio [src]="pokemon()!.cries.latest" controls></audio>
+  <div class="h2">
+      <!-- <button class="btn btn-warning mx-2" (click)="obtenerAnterior()"><i class="bi bi-arrow-left mx-2"></i></button> -->
+      {{pokemon()!.name}}
+      <!-- <button class="btn btn-warning mx-2" (click)="obtenerSiguiente()"><i class="bi bi-arrow-right mx-2"></i></button> -->
+  </div>
+</div>
+} @else {
+  <h1>Cargando datos pokemon...</h1>
+}
