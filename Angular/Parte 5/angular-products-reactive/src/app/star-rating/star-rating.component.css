@@ -1,0 +1,7 @@
+.star-container {
+  width: fit-content;
+
+  .bi {
+    cursor: pointer;
+  }
+}

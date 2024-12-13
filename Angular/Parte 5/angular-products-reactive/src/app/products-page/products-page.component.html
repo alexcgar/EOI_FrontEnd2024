@@ -1,0 +1,46 @@
+<div class="card mb-5">
+  <div class="card-header bg-primary text-white">
+    <i class="bi bi-card-checklist"></i> Mi lista de productos
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <input
+          type="text"
+          [(ngModel)]="search"
+          class="form-control"
+          placeholder="Filter..."
+        />
+      </div>
+      <div class="col-form-label col-sm-6">Filtered by: {{ search() }}</div>
+    </div>
+
+    @if (filteredProducts().length) {
+      <div class="row headers g-0">
+        <div class="col-auto" style="width: 4em">
+          <button
+            class="btn btn-sm"
+            [ngClass]="{
+                'btn-primary': showImage(),
+                'btn-danger': !showImage(),
+            }"
+            (click)="toggleImage()"
+          >
+            <i [class.d-none]="showImage()" class="bi bi-eye"></i>
+            <i [class.d-none]="!showImage()" class="bi bi-eye-slash"></i>
+          </button>
+        </div>
+        <div class="col-4 my-auto">Producto</div>
+        <div class="col my-auto">Precio</div>
+        <div class="col my-auto">Disponible</div>
+        <div class="col my-auto">Puntuación</div>
+        <div class="col-auto" style="width: 2em"></div>
+      </div>
+      @for (product of filteredProducts(); track product.id) {
+        <product-item [product]="product" [showImage]="showImage()" (delete)="deleteProduct(product)" class="row g-0" />
+      }
+    } @else {
+    <h3 class="p-4">No hay productos disponibles</h3>
+    }
+  </div>
+</div>
