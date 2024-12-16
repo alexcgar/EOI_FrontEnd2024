@@ -7,12 +7,12 @@ import { map } from 'rxjs';
 })
 export class TiempoService {
   http = inject(HttpClient);
-  tiempoUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Guarrom%C3%A1n&appid=36716e91288f48d1fb0d996c17c7ce73&units=metric&lang=es';
+  tiempoUrl = 'https://api.openweathermap.org/data/2.5/weather?appid=36716e91288f48d1fb0d996c17c7ce73&units=metric&lang=es&q=';
 
   constructor() { }
 
-  getTiempo() {
-    return this.http.get<any>(`${this.tiempoUrl}`).pipe(
+  getTiempo(ubicacion:string) {
+    return this.http.get<any>(`${this.tiempoUrl}${ubicacion}`).pipe(
       map(resp => {
           return resp; // Información del tiempo
       })

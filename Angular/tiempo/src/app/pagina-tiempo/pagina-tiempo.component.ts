@@ -1,24 +1,31 @@
 import { Component, inject, signal } from '@angular/core';
 import { TiempoService } from '../services/tiempo.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'pagina-tiempo',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './pagina-tiempo.component.html',
   styleUrl: './pagina-tiempo.component.css'
 })
 export class PaginaTiempoComponent {
   tiempoService = inject(TiempoService);
   tiempo = signal<any>({});
+  ubicacion = "";
 
   constructor() {
-    this.obtenerTiempo();
+    this.obtenerTiempo("Guarromán");
   }
 
-  obtenerTiempo() {
+  buscar(productForm: NgForm) {
+    this.obtenerTiempo(this.ubicacion);
+    productForm.resetForm();
+  }
+
+  obtenerTiempo(ubicacion:string) {
     this.tiempoService
-    .getTiempo()
+    .getTiempo(ubicacion)
     .subscribe({
       next: (tiempo) => {
         console.log(tiempo);

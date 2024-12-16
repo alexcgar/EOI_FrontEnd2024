@@ -1,1 +1,30 @@
-<p>pagina-tiempo works!</p>
+<form (ngSubmit)="buscar(productForm)" #productForm="ngForm" class="mt-3">
+    <div class="input-group border-success">
+        <span class="input-group-text" id="ubicacion"><i class="bi bi-map"></i></span>
+        <input type="text" class="form-control" placeholder="Introduce una ubicación..." aria-label="ubicacion" aria-describedby="ubicacion" name="ubicacion" [(ngModel)]="ubicacion">
+    </div>
+</form>
+
+<div class="card mt-2 text-center">
+    <img src="https://openweathermap.org/img/wn/{{tiempo().weather[0].icon}}@4x.png" class="card-img-top w-25 mx-auto"
+        alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{tiempo().name}}</h5>
+        <p class="card-text">({{tiempo().weather[0].description}})</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <i class="bi bi-thermometer text-success"></i> {{tiempo().main.temp}} ºC
+        </li>
+        <li class="list-group-item">
+            <i class="bi bi-thermometer-snow text-primary"></i> {{tiempo().main.temp_min}} ºC
+        </li>
+        <li class="list-group-item">
+            <i class="bi bi-thermometer-sun text-danger"></i> {{tiempo().main.temp_max}} ºC
+        </li>
+    </ul>
+    <div class="card-body">
+        <a href="https://www.google.com/maps?q={{tiempo().coord.lat}},{{tiempo().coord.lon}}"
+            class="btn btn-primary px-4" target="_blank"><i class="bi bi-globe-americas"></i></a>
+    </div>
+</div>
