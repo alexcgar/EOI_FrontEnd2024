@@ -3,9 +3,5 @@
 @import "bootstrap-icons/font/bootstrap-icons.min.css";
 
 body {
-    background-image: url('/giphy.gif');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
+    background: url('/giphy.gif') no-repeat center/cover fixed;
 }
